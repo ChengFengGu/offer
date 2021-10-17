@@ -1,7 +1,7 @@
 '''
 Author: your name
 Date: 2021-10-17 23:20:47
-LastEditTime: 2021-10-17 23:41:40
+LastEditTime: 2021-10-17 23:44:56
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: /offer/生日聚会.py
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     containers = set()
     
     
-    def dfs(node,matrix,container:set):
+    def dfs(node,matrix,container:list):
         origin_len = len(container)
         container.add(node)
         after_len = len(container)
@@ -41,7 +41,8 @@ if __name__ == "__main__":
         if sum([len(e) for e in containers]) == N:
             flag = False
         else:
-            containers.add(dfs(idx,matrix,set()))
+            container = set()
+            containers.add(dfs(idx,matrix,container))
             
     print(len(containers))
             
