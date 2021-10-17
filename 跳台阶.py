@@ -26,4 +26,4 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.jumpFloor(36))
+    print(sol.jumpFloor(35))
