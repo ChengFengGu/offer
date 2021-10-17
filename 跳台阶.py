@@ -24,9 +24,10 @@ class Solution:
             return self.jumpFloor(number - 1) + self.jumpFloor(number - 2)
 
     def jumpFloor_infer(self,number):
-        dp = []
+        dp = [None for i in range(number)]
+        dp
         for i in range(number):
-            if 
+            pass
 
 
 
