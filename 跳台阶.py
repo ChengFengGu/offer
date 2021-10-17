@@ -24,7 +24,8 @@ class Solution:
             return self.jumpFloor(number - 1) + self.jumpFloor(number - 2)
         
     def jumpFloor_infer(self,number):
-        
+        for i in range(number):
+            
 
 
 if __name__ == "__main__":
