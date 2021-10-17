@@ -12,6 +12,7 @@ FilePath: /offer/跳台阶.py
 # -*- coding:utf-8 -*-
 
 # https://www.nowcoder.com/practice/8c82a5b80378478f9484d87d1c5f12a4?tpId=188&rp=1&ru=%2Factivity%2Foj&qru=%2Fta%2Fjob-code-high-week%2Fquestion-ranking
+
 class Solution:
     def jumpFloor(self, number):
         # write code here
@@ -25,4 +26,4 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.jumpFloor(35))
+    print(sol.jumpFloor(36))
