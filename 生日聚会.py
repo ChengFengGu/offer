@@ -1,7 +1,7 @@
 '''
 Author: your name
 Date: 2021-10-17 23:20:47
-LastEditTime: 2021-10-17 23:35:56
+LastEditTime: 2021-10-17 23:38:24
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: /offer/生日聚会.py
@@ -17,8 +17,8 @@ if __name__ == "__main__":
     matrix = [[0 for _ in range(N)] for i in range(N)]
     
     for src,dst in data:
-        matrix[src][dst] = 1
-        matrix[dst][src] = 1
+        matrix[src-1][dst-1] = 1
+        matrix[dst-1][src-1] = 1
         
     
     containers = []
@@ -38,7 +38,8 @@ if __name__ == "__main__":
             flag = False
         else:
             containers.append(dfs(idx,matrix,{}))
-            containers = 
+            containers = list(set(containers))
+    print(len(containers))
             
     
 
