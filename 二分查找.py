@@ -31,9 +31,9 @@ class Solution:
                     return -1
                 visited[index] = 1
                 value = nums[index]
-
-        while nums[index] == nums[index - 1]:
-            index -= 1
+        if index >0:
+            while nums[index] == nums[index - 1]:
+                index -= 1
 
         return index
 
