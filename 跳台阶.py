@@ -36,11 +36,11 @@ class Solution:
         dp[2] = 2
         
         sum = 0
-        for i in range(2,number):
+        for i in range(3,number):
             dp[i] = dp[i-1] + dp[i-2]
         for item in dp[:-1]:
             sum += item
-        return sum
+        return sum + 2  #这是为什么？#TODO
 
 
 if __name__ == "__main__":
