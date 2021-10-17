@@ -12,7 +12,16 @@
 
 
 class Solution:
-    def binary_search()
+    def binary_search(self,nums,left,right,x):
+        if right >= 1:
+            mid = int(1+(right-1)/2)
+
+            if nums[mid] == x:
+                return mid
+            elif nums[mid] < x:
+                self.binary_search(nums,0,mid,x)
+            elif nums[mid] > x:
+                self.binary_search(nums,mid,)
     
     def search(self, nums, target):
         # write code here
