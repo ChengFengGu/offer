@@ -25,15 +25,20 @@ class Solution:
             return self.jumpFloor(number - 1) + self.jumpFloor(number - 2)
 
     def jumpFloor_infer(self, number):
+        # write code here
+        if number <= 0:
+            return 0
+        if number ==1 or number ==2:
+            return number
         dp = [None for i in range(number)]
         dp[0] = 0
         dp[1] = 1
         dp[2] = 2
         
         sum = 0
-        for i in range(3,number):
+        for i in range(2,number):
             dp[i] = dp[i-1] + dp[i-2]
-        for item in dp:
+        for item in dp[:-1]:
             sum += item
         return sum
 
