@@ -16,16 +16,16 @@ class Solution:
         for char in s:
             if char in list(self.ops_prio.keys()):
                 prio = self.ops_prio.get(char)
-                top = self.ops_prio.get(ops[-1])
+                top = self.ops_prio.get(self.ops[-1])
                 if top!=None and self.ops_prio.get(top)>=prio:
                     pass
 
     def solve(self, s):
         # write code here
-        # 符号栈 数字栈 计算优先级 括号>乘>加=减
+        # 符号栈 数字栈 计算优先级 右括号>乘>加=减>左括号
         # 符号栈： 规则： 遇到一半括号，则等待另一个括号再进行计算
         # 数字符号全入栈，遇加减等待，遇乘法等待，遇一半括号，则等待另一个括号再进行计算
-        self.
+        self.ops = []
         nums = []
         ops_prio = {"+":1, "-":1, "*":2, "(":0, ")":3}
         s = s.replace(" ",'')
