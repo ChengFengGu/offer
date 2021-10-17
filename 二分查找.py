@@ -12,39 +12,10 @@
 
 
 class Solution:
+    def binary_search()
+    
     def search(self, nums, target):
         # write code here
-        visited = [0 for i in range(len(nums))]
-        start = 0
-        end = len(nums)
-        mid = int((start + end) / 2)
-        index = mid
-        value = nums[index]
-        visited[index] = 1
-        while value != target:
-            origin_index = index
-            if target > value:
-                start = index
-                end = len(nums)
-                index = int((start + end) / 2)
-                if visited[index] == 1:
-                    return -1
-                visited[index] = 1
-                value = nums[index]
-
-            elif target < value:
-                start = 0
-                end = index
-                index = int((start + end) / 2)
-                if visited[index] == 1:
-                    return -1
-                visited[index] = 1
-                value = nums[index]
-        if index > 0:
-            while nums[index] == nums[index - 1]:
-                index -= 1
-
-        return index
 
 
 # %%
