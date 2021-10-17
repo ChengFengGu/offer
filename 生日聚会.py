@@ -1,7 +1,7 @@
 '''
 Author: your name
 Date: 2021-10-17 23:20:47
-LastEditTime: 2021-10-17 23:23:00
+LastEditTime: 2021-10-17 23:26:38
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: /offer/生日聚会.py
@@ -16,5 +16,10 @@ if __name__ == "__main__":
     
     matrix = [[0 for _ in range(N)] for i in range(N)]
     
-    for 
+    for src,dst in data:
+        matrix[src][dst] = 1
+        matrix[dst][src] = 1
+    def dfs(node,matrix):
+        
+    
     
