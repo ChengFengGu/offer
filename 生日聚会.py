@@ -1,7 +1,7 @@
 '''
 Author: your name
 Date: 2021-10-17 23:20:47
-LastEditTime: 2021-10-17 23:47:26
+LastEditTime: 2021-10-17 23:53:01
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: /offer/生日聚会.py
@@ -46,7 +46,8 @@ if __name__ == "__main__":
             container = dfs(idx,matrix,[])
             if container not in containers:
                 containers.append(sorted(container))
-            containers = list(set(containers))
+        idx += 1
+            
     print(len(containers))
             
     
