@@ -14,7 +14,9 @@ class Solution:
     def search(self, nums, target):
         # write code here
         visited = [0 for i in range(len(nums))]
-        index = int((0 + len(nums)) / 2)
+        start = 0
+        end = len(nums)
+        index = int((start + end) / 2)
         value = nums[index]
         visited[index] = 1
         while value != target:
