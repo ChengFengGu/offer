@@ -12,19 +12,27 @@
 
 
 class Solution:
-    def binary_search(self,nums,left,right,x):
+    def binary_search(self, nums, left, right, x):
         if right >= 1:
-            mid = int(1+(right-1)/2)
+            mid = int(1 + (right - 1) / 2)
 
             if nums[mid] == x:
                 return mid
             elif nums[mid] < x:
-                self.binary_search(nums,0,mid,x)
+                return self.binary_search(nums, left, mid, x)
             elif nums[mid] > x:
-                self.binary_search(nums,mid,)
-    
+                return self.binary_search(nums, mid, right, x)
+
     def search(self, nums, target):
         # write code here
+        left = 0
+        right = len(nums) - 1
+        index = self.binary_search(nums, left, right, target)
+
+        if index > 0:
+            while nums[index] == nums[index - 1]:
+                index -= 1
+        return index
 
 
 # %%
