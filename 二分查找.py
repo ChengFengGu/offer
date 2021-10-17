@@ -19,9 +19,9 @@ class Solution:
             if nums[mid] == x:
                 return mid
             elif nums[mid] < x:
-                return self.binary_search(nums, left, mid, x)
+                return self.binary_search(nums, left, mid - 1, x)
             elif nums[mid] > x:
-                return self.binary_search(nums, mid, right, x)
+                return self.binary_search(nums, mid + 1, right, x)
 
     def search(self, nums, target):
         # write code here
@@ -29,6 +29,9 @@ class Solution:
         right = len(nums) - 1
         index = self.binary_search(nums, left, right, target)
 
+        if index == None:
+            return -1
+        
         if index > 0:
             while nums[index] == nums[index - 1]:
                 index -= 1
