@@ -44,7 +44,7 @@ class Solution:
 
         start = 0
         end = len(nums) - 1
-        mid = int((start + end) / 2)
+        mid = (start + end) // 2
 
         while nums[mid] != target:
             visited[mid] = 1
@@ -52,6 +52,8 @@ class Solution:
                 start = start
                 end = mid
                 mid = (start + end) // 2
+                if mid < 0:
+                    mid = 0
                 if visited[mid] == 1:
                     return -1
 
@@ -59,12 +61,14 @@ class Solution:
                 start = mid
                 end = end
                 mid = (start + end) // 2
+                if mid > 
                 if visited[mid] == 1:
                     return -1
 
         if mid > 0:
             if nums[mid] == nums[mid - 1]:
                 return mid
+        return mid
 
 
 # %%
