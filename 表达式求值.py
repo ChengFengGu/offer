@@ -24,6 +24,6 @@ class Solution:
                 nums.append(char)
 
         # compute
-
-        while ops.pop != None:
+        temp = 0 # 当前表达式的值
+        while ops.pop() != None:
             
