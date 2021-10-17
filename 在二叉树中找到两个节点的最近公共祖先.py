@@ -1,11 +1,4 @@
-'''
-Author: your name
-Date: 2021-10-17 15:26:42
-LastEditTime: 2021-10-17 15:26:43
-LastEditors: your name
-Description: In User Settings Edit
-FilePath: /offer/在二叉树中找到两个节点的最近公共祖先.py
-'''
+
 """
 Author: your name
 Date: 2021-10-17 15:12:25
@@ -41,13 +34,20 @@ class Solution:
 
         mid_traveller_list = self.mid_traveller(root, 0, [])
 
-        for val,layer in mid_traveller_list:
+        idx = 0
+        for val, layer in mid_traveller_list:
             if val == o1:
-                index1 = 
-        
+                index1 = idx
+                layer1 = layer
+            if val == o2:
+                index2 = idx
+                layer2 = layer
+            idx += 1
+
         index1 = mid_traveller_list.index(o1)
         index2 = mid_traveller_list.index(o2)
 
         cand_nodes = mid_traveller_list[index1 + 1, index2]
-
-        
+        filter_nodes = []
+        for val,layer in cand_nodes:
+            if layer < min(layer1,layer2)
