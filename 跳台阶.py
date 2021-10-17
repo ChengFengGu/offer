@@ -33,7 +33,9 @@ class Solution:
         sum = 0
         for i in range(3,number):
             dp[i] = dp[i-1] + dp[i-2]
-        return 
+        for item in dp:
+            sum += item
+        return sum
 
 
 if __name__ == "__main__":
