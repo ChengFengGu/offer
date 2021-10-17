@@ -17,7 +17,8 @@ class Solution:
         visited = [0 for i in range(len(nums))]
         start = 0
         end = len(nums)
-        index = int((start + end) / 2)
+        mid = int((start + end) / 2)
+        index = mid
         value = nums[index]
         visited[index] = 1
         while value != target:
@@ -30,12 +31,11 @@ class Solution:
                     return -1
                 visited[index] = 1
                 value = nums[index]
-                
+
             elif target < value:
                 start = 0
                 end = index
-                index = int(())
-                index = int((0 + index) / 2)
+                index = int((start + end) / 2)
                 if visited[index] == 1:
                     return -1
                 visited[index] = 1
