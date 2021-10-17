@@ -40,13 +40,17 @@
 
 class Solution:
     def search(self, nums, target: int):
+        if len(nums) == 0:
+            return -1
         visited = [0 for i in range(len(nums))]
 
         start = 0
         end = len(nums) - 1
         mid = (start + end) // 2
         if mid < 0:
-                mid = 0
+            mid = 0
+        if mid > len(nums) - 1:
+            mid = len(nums) - 1
         while nums[mid] != target:
             visited[mid] = 1
             if target < nums[mid]:
@@ -67,7 +71,7 @@ class Solution:
                 if visited[mid] == 1:
                     return -1
 
-        while nums[mid] == nums[mid - 1]:
+        while nums[mid] == nums[mid - 1] and mid > 0:
             mid -= 1
         return mid
 
@@ -75,4 +79,4 @@ class Solution:
 # %%
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.search([1, 2, 2, 3, 4], 2))
+    print(sol.search([-2, -2, -2, -2, -2], -2))
