@@ -1,4 +1,3 @@
-
 """
 Author: your name
 Date: 2021-10-17 15:12:25
@@ -27,7 +26,6 @@ class Solution:
         else:
             return container
 
-
     def lowestCommonAncestor(self, root: TreeNode, o1, o2):
         # write code here
         # 用什么遍历？ 中序，遍历完成之后，两者的中间节点进行筛选
@@ -50,9 +48,14 @@ class Solution:
 
         cand_nodes = mid_traveller_list[index1 + 1, index2]
         filter_nodes = []
-        for val,layer in cand_nodes:
-            if layer < min(layer1,layer2):
-                if mid_traveller_list.index((val,layer)) < max(layer1,layer2) and mid_traveller_list.index((val,layer))
-                filter_nodes.append(val,layer)
-                
-        
+        for val, layer in cand_nodes:
+            if layer < min(layer1, layer2):
+                if mid_traveller_list.index((val, layer)) < max(
+                    index1, index2
+                ) and mid_traveller_list.index((val, layer)) > min(index1, index2):
+                    filter_nodes.append(val, layer)
+
+        layer = min(layer1, layer2)
+        layer_dist = min(layer1, layer2) - 0
+        for v,l in filter_nodes:
+            if l < 
