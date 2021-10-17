@@ -16,7 +16,7 @@ class Solution:
         # 数字符号全入栈，遇加减等待，遇乘法等待，遇一半括号，则等待另一个括号再进行计算
         ops = []
         nums = []
-
+        s = s.replace(" ",'')
         for char in s:
             if char in ["+", "-", "*", "(", ")"]:
                 ops.append(char)
