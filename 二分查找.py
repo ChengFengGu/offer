@@ -39,14 +39,12 @@
 
 
 class Solution:
-    def search(self, nums, target):
+    def search(self, nums, target: int):
         visited = [0 for i in range(len(nums))]
 
-        nums = []
-
         start = 0
-        end = len(nums)-1
-        mid = (start + end) // 2
+        end = len(nums) - 1
+        mid = int((start + end) / 2)
 
         while nums[mid] != target:
             visited[mid] = 1
