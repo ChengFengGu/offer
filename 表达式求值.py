@@ -20,7 +20,10 @@ class Solution:
         s = s.replace(" ",'')
         for char in s:
             if char in list(ops_prio.keys()):
-                prio = ops
+                prio = ops_prio.get(char)
+                top = ops.pop()
+                if top!=None and ops_prio.get(top)<=
+                    
             if char in ["{i}" for i in range(0, 9)]:
                 nums.append(char)
 
