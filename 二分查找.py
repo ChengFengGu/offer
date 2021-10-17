@@ -31,7 +31,7 @@
 
 #         if index == None:
 #             return -1
-        
+
 #         if index > 0:
 #             while nums[index] == nums[index - 1]:
 #                 index -= 1
@@ -41,16 +41,22 @@
 class Solution:
     def search(self, nums, target):
         visited = [0 for i in range(len(nums))]
-        
+
         nums = []
-        
+
         start = 0
         end = len(nums)
-        
-        
-        
-        
+        mid = (start + end) // 2
 
+        while nums[mid] != target:
+            if target < nums[mid]:
+                start = start
+                end = mid
+                mid = (start + end) // 2
+                
+                
+                
+                
 
 # %%
 if __name__ == "__main__":
