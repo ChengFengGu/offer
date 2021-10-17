@@ -16,7 +16,7 @@ class Solution:
     def jumpFloor(self, number):
         # write code here
         if number <= 0:
-            return -1
+            return 0
         elif number == 1 or number == 2:
             return number
         else:
@@ -25,4 +25,4 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.jumpFloor(7))
+    print(sol.jumpFloor(35))
