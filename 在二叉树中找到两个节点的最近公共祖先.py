@@ -57,5 +57,9 @@ class Solution:
 
         layer = min(layer1, layer2)
         layer_dist = min(layer1, layer2) - 0
-        for v,l in filter_nodes:
-            if l < 
+        cand_node_val = None
+        for v, l in filter_nodes:
+            if abs(l - layer) < layer_dist:
+                layer_dist = abs(l - layer)
+                cand_node_val = v
+        return cand_node_val
