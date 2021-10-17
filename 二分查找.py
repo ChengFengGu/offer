@@ -45,18 +45,29 @@ class Solution:
         nums = []
 
         start = 0
-        end = len(nums)
+        end = len(nums)-1
         mid = (start + end) // 2
 
         while nums[mid] != target:
+            visited[mid] = 1
             if target < nums[mid]:
                 start = start
                 end = mid
                 mid = (start + end) // 2
-                
-                
-                
-                
+                if visited[mid] == 1:
+                    return -1
+
+            if target > nums[mid]:
+                start = mid
+                end = end
+                mid = (start + end) // 2
+                if visited[mid] == 1:
+                    return -1
+
+        if mid > 0:
+            if nums[mid] == nums[mid - 1]:
+                return mid
+
 
 # %%
 if __name__ == "__main__":
