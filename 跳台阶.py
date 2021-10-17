@@ -22,10 +22,12 @@ class Solution:
             return number
         else:
             return self.jumpFloor(number - 1) + self.jumpFloor(number - 2)
-        
+
     def jumpFloor_infer(self,number):
+        dp = []
         for i in range(number):
-            
+            if 
+
 
 
 if __name__ == "__main__":
