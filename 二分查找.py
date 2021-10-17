@@ -11,31 +11,45 @@
 #
 
 
-class Solution:
-    def binary_search(self, nums, left, right, x):
-        if right >= 1:
-            mid = int(1 + (right - 1) / 2)
+# class Solution:
+#     def binary_search(self, nums, left, right, x):
+#         if right >= 1:
+#             mid = int(1 + (right - 1) / 2)
 
-            if nums[mid] == x:
-                return mid
-            elif nums[mid] < x:
-                return self.binary_search(nums, left, mid - 1, x)
-            elif nums[mid] > x:
-                return self.binary_search(nums, mid + 1, right, x)
+#             if nums[mid] == x:
+#                 return mid
+#             elif nums[mid] < x:
+#                 return self.binary_search(nums, left, mid - 1, x)
+#             elif nums[mid] > x:
+#                 return self.binary_search(nums, mid + 1, right, x)
 
-    def search(self, nums, target):
-        # write code here
-        left = 0
-        right = len(nums) - 1
-        index = self.binary_search(nums, left, right, target)
+#     def search(self, nums, target):
+#         # write code here
+#         left = 0
+#         right = len(nums) - 1
+#         index = self.binary_search(nums, left, right, target)
 
-        if index == None:
-            return -1
+#         if index == None:
+#             return -1
         
-        if index > 0:
-            while nums[index] == nums[index - 1]:
-                index -= 1
-        return index
+#         if index > 0:
+#             while nums[index] == nums[index - 1]:
+#                 index -= 1
+#         return index
+
+
+class Solution:
+    def search(self, nums, target):
+        visited = [0 for i in range(len(nums))]
+        
+        nums = []
+        
+        start = 0
+        end = len(nums)
+        
+        
+        
+        
 
 
 # %%
