@@ -44,8 +44,8 @@ if __name__ == "__main__":
             flag = False
         else:
             container = dfs(idx,matrix,[])
-            if not 
-            containers.append()
+            if container not in containers:
+                containers.append(sorted(container))
             containers = list(set(containers))
     print(len(containers))
             
