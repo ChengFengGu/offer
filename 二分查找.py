@@ -45,12 +45,13 @@ class Solution:
         start = 0
         end = len(nums) - 1
         mid = (start + end) // 2
-
+        if mid < 0:
+                mid = 0
         while nums[mid] != target:
             visited[mid] = 1
             if target < nums[mid]:
                 start = start
-                end = mid-1
+                end = mid - 1
                 mid = (start + end) // 2
                 if mid < 0:
                     mid = 0
@@ -58,7 +59,7 @@ class Solution:
                     return -1
 
             if target > nums[mid]:
-                start = mid+1
+                start = mid + 1
                 end = end
                 mid = (start + end) // 2
                 if mid > len(nums) - 1:
@@ -66,13 +67,12 @@ class Solution:
                 if visited[mid] == 1:
                     return -1
 
-        if mid > 0:
-            if nums[mid] == nums[mid - 1]:
-                return mid
+        while nums[mid] == nums[mid - 1]:
+            mid -= 1
         return mid
 
 
 # %%
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.search([-2, 1, 2], 2))
+    print(sol.search([1, 2, 2, 3, 4], 2))
