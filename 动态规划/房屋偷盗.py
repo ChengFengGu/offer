@@ -59,7 +59,11 @@ def robv4(nums: list):
 
     dp = [[-1 for _ in range(len(nums))] for i in range(2)]
     dp[0][0] = 0
-    
+    dp[1][0] = nums[0]
+
+    for i in range(1, len(nums)):
+        dp[0][i % 2] = max(dp[0][(i - 1) % 2], dp[1][(i - 1) % 2])
+        dp[1][i % 2] = dp[0]
 
 
 if __name__ == "__main__":
