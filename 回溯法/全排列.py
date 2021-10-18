@@ -24,10 +24,13 @@ def swap(nums: list, i, j):
 
 def sets(nums: list):
 
+    if len(nums) == 2:
+        return [[nums[0],[nums[1]],[nums[1],nums[0]]]]
+
     result = []
     helper(nums, 0, result)
     return result
 
 
 if __name__ == "__main__":
-    print(sets([1, 2, 3]))
+    print(sets([1, 2,3]))
