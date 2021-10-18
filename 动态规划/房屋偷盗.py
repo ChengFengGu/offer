@@ -50,6 +50,10 @@ def robv3(nums: list):
 
     return max(dp[0], dp[1])
 
+def robv4(nums:list):
+    
+
+
 
 if __name__ == "__main__":
     print(robv3([1, 2, 3, 4, 5]))
