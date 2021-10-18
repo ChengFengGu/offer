@@ -16,17 +16,19 @@ def helper(nums: list, i: int, dp: list):
         dp[i] = nums[i]
     elif i == 1:
         dp[1] == max(nums[1], nums[0])
-    elif 
-
-    elif i < len(nums) and i >= 2:
+    elif dp[i] < 0:
+        helper(nums, i - 2, dp)
         helper(nums, i - 1, dp)
-        dp[i] = max(dp[i - 2] + nums[i], dp[i - 1])
+        dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])
 
 
 def rob(nums: list):
     dp = [0 for i in range(len(nums))]
+    dp[0] = nums[0]
+    dp[1] = nums[1]
+    
     length = len(nums)
-    helper(nums, 0, dp)
+    helper(nums, length - 1, dp)
     return max(dp[len - 1], dp[len - 2])
 
 
