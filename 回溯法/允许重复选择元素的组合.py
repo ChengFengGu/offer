@@ -19,3 +19,6 @@ def subsets(nums: list, k: int):
 
 if __name__ == "__main__":
     print(subsets([2, 3, 5], 8))
+
+
+# https://weread.qq.com/web/reader/4e132bc07263ff664e11075ka6832360236a684eceeee20
