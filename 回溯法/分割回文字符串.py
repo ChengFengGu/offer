@@ -20,8 +20,9 @@ def helper(string: str, index: int, container: str, result: list):
         result.append(container)
     if index < len(string):  # 一共有多少个字串，都要得到
         container = string[index]
-        for j in range(index+1,len(string)):
-            
+        for j in range(index, len(string)):
+            helper(string, index + 1, container + string[index:j], result)
+
 
 
 def generate(string: str):
