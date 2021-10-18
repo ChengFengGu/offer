@@ -13,7 +13,11 @@
 
 # 递归版本 带缓存
 
-def helper(cost:list,)
+def helper(cost:list,i:int,n:int,r:list,g:list,b:list):
+    
+    
+    
+    pass
 
 
 
