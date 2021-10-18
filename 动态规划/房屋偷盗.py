@@ -32,11 +32,15 @@ def rob(nums: list):
     return max(dp[length - 1], dp[length - 2])
 
 
-
-def robv2(nums:list):
+def robv2(nums: list):
     dp = [-1 for _ in range(len(nums))]
     dp[0] = nums[0]
     dp[1] = max(nums[1], nums[0])
 
+    for i in range(2, len(nums)):
+        dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])
+    return min(dp[len(nums) - 1], dp[len(nums) - 2])
+
+
 if __name__ == "__main__":
-    print(rob([1, 2, 3, 4, 5]))
+    print(robv2([1, 2, 3, 4, 5]))
