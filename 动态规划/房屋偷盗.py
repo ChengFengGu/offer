@@ -70,15 +70,16 @@ def robv4(nums: list):
 # 环形房屋偷盗，分解为两个问题，max((0-n-2) ; 1-(n-1))
 
 
-def rov_cycle(nums: list):
+def rob_cycle(nums: list):
     if len(nums) == 0:
         return 0
     if len(nums) == 1:
         return nums[0]
-    
+
     elif len(nums) > 2:
-        
+        result = max((robv3(nums[0 : len(nums) - 1]), robv3(nums[1 : len(nums)])))
+    return result
 
 
 if __name__ == "__main__":
-    print(robv4([1, 2, 3, 4, 5]))
+    print(rob_cycle([1, 2, 3, 4, 5]))
