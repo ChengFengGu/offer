@@ -15,7 +15,15 @@ def helper(cost:list,i:int,n:int):
 
 
 def main(cost: list):
-    pass
+    n = len(cost)
+    dp = [-1 for _ in range(n)]
+    r[i] = 
+    for i in range(n):
+        if i == 0:
+            dp[i] = min(cost[i])
+        r[i]
+            
+    
 
 
 if __name__ == "__main__":
