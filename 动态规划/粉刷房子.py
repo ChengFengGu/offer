@@ -10,20 +10,23 @@
 #             g(i) = min(r(i-1),b(i-1)) + cost[i][1]
 #             b(i) = min(r(i-1),g(i-1)) + cost[i][2]
 
-def helper(cost:list,i:int,n:int):
+
+def helper(cost: list, i: int, n: int):
     pass
 
 
 def main(cost: list):
     n = len(cost)
     dp = [-1 for _ in range(n)]
-    r[i] = 
+    r = [-1 for _ in range(n)]
+    g = [-1 for _ in range(n)]
+    b = [-1 for _ in range(n)]
+
     for i in range(n):
         if i == 0:
             dp[i] = min(cost[i])
-        r[i]
-            
-    
+            r[i] = cost[i][0]
+            g[i] = cost[i]
 
 
 if __name__ == "__main__":
