@@ -22,18 +22,18 @@ def main(cost: list):
     g = [-1 for _ in range(n)]
     b = [-1 for _ in range(n)]
 
-
     for i in range(n):
         if i == 0:
             dp[i] = min(cost[i])
             r[i] = cost[i][0]
             g[i] = cost[i][1]
             b[i] = cost[i][2]
-        r[i] = min(g[i-1],b[i-1]) + cost[i][0]
-        g[i] = min(r[i-1],b[i-1]) + cost[i][1]
-        b[i] = min(r[i-1],g[i-1]) + cost[i][2]
+        r[i] = min(g[i - 1], b[i - 1]) + cost[i][0]
+        g[i] = min(r[i - 1], b[i - 1]) + cost[i][1]
+        b[i] = min(r[i - 1], g[i - 1]) + cost[i][2]
 
-        cost = 
+        dp[i] = min(r[i], g[i], b[i])
+    return dp[-1]
 
 
 if __name__ == "__main__":
