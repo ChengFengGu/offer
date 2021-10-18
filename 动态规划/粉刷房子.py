@@ -33,8 +33,9 @@ def main(cost: list):
         b[i] = min(r[i - 1], g[i - 1]) + cost[i][2]
 
         dp[i] = min(r[i], g[i], b[i])
-    return dp[-1]
+    return dp[n-1]
 
 
 if __name__ == "__main__":
-    pass
+    result = main([[17, 2, 16], [15, 14, 5], [13, 3, 1]])
+    print(result)
