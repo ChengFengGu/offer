@@ -5,7 +5,7 @@ def helper(nums: list, k: int, index: int, subset: list, result: list):
 
         helper(nums, k, index + 1, subset, result)
         subset.append(nums[index])
-        helper(nums, k, index + 1, subset, result)
+        helper(nums, k, index, subset, result)  
         subset.pop()
 
 
