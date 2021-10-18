@@ -20,10 +20,10 @@ def helper(cost:list,i:int,n:int,r:list,g:list,b:list,dp:list):
         dp[i] = min(cost[i])
         r[i] = cost[i][0]
         g[i] = cost[i][1]
-        b[i] = cost[i][2]
+        b[i] = cost[i][2]        
     elif i < n:
         if dp[i] == -1:
-            
+            helper(cost,i+1,n,)
         
     
     pass
