@@ -67,10 +67,17 @@ def robv4(nums: list):
     return max(dp[0][(length - 1) % 2], dp[1][(length - 1) % 2])
 
 
-
 # 环形房屋偷盗，分解为两个问题，max((0-n-2) ; 1-(n-1))
 
 
+def rov_cycle(nums: list):
+    if len(nums) == 0:
+        return 0
+    if len(nums) == 1:
+        return nums[0]
+    
+    elif len(nums) > 2:
+        
 
 
 if __name__ == "__main__":
