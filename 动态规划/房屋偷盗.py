@@ -50,9 +50,16 @@ def robv3(nums: list):
 
     return max(dp[0], dp[1])
 
-def robv4(nums:list):
-    
 
+def robv4(nums: list):
+    length = len(nums)
+
+    if length == 0:
+        return 0
+
+    dp = [[-1 for _ in range(len(nums))] for i in range(2)]
+    dp[0][0] = 0
+    
 
 
 if __name__ == "__main__":
