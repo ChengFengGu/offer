@@ -15,10 +15,15 @@ def helper(nums: list, i: int, dp: list):
     if i < 2:
         dp[i] = nums[i]
     elif i < len(nums):
-        helper(nums,i+1,dp)
+        helper(nums, i + 1, dp)
         dp[i] = max(dp[i - 2] + nums[i], dp[i - 1])
 
 
 def rob(nums: list):
-    dp = []
-    helper(nums,0,dp)
+    dp = [0 for i in range(len(nums))]
+    length = len(nums)
+    helper(nums, length, dp)
+    return max(dp[len - 1], dp[len - 2])
+
+if __name__ == '__main__':
+    rob([1,2,3,4,5])
