@@ -1,15 +1,10 @@
-'''
-Author: your name
-Date: 2021-10-18 10:24:18
-LastEditTime: 2021-10-18 10:26:41
-LastEditors: Please set LastEditors
-Description: In User Settings Edit
-FilePath: /offer/回溯法/Cnk.py
-'''
-
-def helper(n,)
+def helper(n: int, k: int, index: int, combination: list, result: list):
+    if len(combination) == k:
+        result.append(combination)
+    elif i <= n:
+        helper()
 
 
 
-def subsets(nums:int):
+def subsets(nums: int):
     pass
