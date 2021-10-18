@@ -12,8 +12,10 @@ def judge(string:str):
 def helper(string:str,index:int,container:str,result:list):
     
     if index <= len(string):
-        pass
+        if judge(container):
+            result.append(container.copy())
 
+        container
     pass
 
 
