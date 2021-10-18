@@ -1,28 +1,33 @@
-def helper(n, index, container, result):
-    if index == 2 * n:
-        left_num = 0
-        right_num = 0
-        for e in container:
-            if e == "(":
-                left_num += 1
-            if e == ")":
-                right_num += 1
-        if left_num == right_num:
-            result.append(container.copy())
-    else:
-        container.append("(")
-        helper(n, index + 1, container, result)
-        container.pop()
+# 自己的思路 ： 有明显不完善的地方
 
-        container.append(")")
-        helper(n, index + 1, container, result)
-        container.pop()
+# def helper(n, index, container, result):
+#     if index == 2 * n:
+#         left_num = 0
+#         right_num = 0
+#         for e in container:
+#             if e == "(":
+#                 left_num += 1
+#             if e == ")":
+#                 right_num += 1
+#         if left_num == right_num:
+#             result.append(container.copy())
+#     else:
+#         container.append("(")
+#         helper(n, index + 1, container, result)
+#         container.pop()
 
+#         container.append(")")
+#         helper(n, index + 1, container, result)
+#         container.pop()
+
+
+def helper(left:int,right:int,parethesis,result):
+    
 
 def generate(n: int):
     container = []
     result = []
-    helper(n, 0, container, result)
+    # helper(n, 0, container, result)
     return result
 
 
