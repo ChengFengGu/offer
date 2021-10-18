@@ -1,7 +1,7 @@
 def helper(nums: list, k: int, index: int, subset: list, result: list):
     if sum(subset) == k:
         result.append(subset.copy())
-    elif index < len(nums):
+    elif k > 0 and index < len(nums):
 
         helper(nums, k, index + 1, subset, result)
         subset.append(nums[index])
@@ -15,5 +15,6 @@ def subsets(nums: list, k: int):
     helper(nums, k, 0, subset, result)
     return result
 
-if __name__ == '__main__':
-    print(subsets([2,3,5],8))
+
+if __name__ == "__main__":
+    print(subsets([2, 3, 5], 8))
