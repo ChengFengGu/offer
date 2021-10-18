@@ -4,6 +4,8 @@
 def judge(string: str):
     if len(string) == 0:
         return False
+    if len(string) == 1:
+        return True
     mid = len(string) // 2
     flag = True
     for i in range(mid):
@@ -18,8 +20,8 @@ def helper(string: str, index: int, container: str, result: list):
         if container not in result:
             result.append(container)
     if index < len(string):  # 一共有多少个字串，都要得到
-        container = string[index]
-        for j in range(index, len(string)):
+        container = ""
+        for j in range(index, len(string) + 1):
             helper(string, index + 1, container + string[index:j], result)
 
 
@@ -27,8 +29,12 @@ def generate(string: str):
     container = ""
     result = []
     helper(string, 0, container, result)
-    return result
+    return sorted(result)
 
 
 if __name__ == "__main__":
     print(generate("google"))
+
+
+# 自己有改动： https://weread.qq.com/web/reader/4e132bc07263ff664e11075kb5332110237b53b3a3d68d2
+
