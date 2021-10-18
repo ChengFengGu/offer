@@ -39,8 +39,17 @@ def robv2(nums: list):
 
     for i in range(2, len(nums)):
         dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])
-    return min(dp[len(nums) - 1], dp[len(nums) - 2])
+    return max(dp[len(nums) - 1], dp[len(nums) - 2])
+
+
+def robv3(nums: list):
+    dp = [nums[0], max(nums[0], nums[1])]
+
+    for i in range(2, len(nums)):
+        dp[i % 2] = max(dp[(i - 2) % 2] + nums[i], dp[(i - 1) % 2])
+
+    return max(dp[0], dp[1])
 
 
 if __name__ == "__main__":
-    print(robv2([1, 2, 3, 4, 5]))
+    print(robv3([1, 2, 3, 4, 5]))
