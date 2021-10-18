@@ -22,4 +22,9 @@ def helper(n, index, container, result):
 def generate(n: int):
     container = []
     result = []
-    helper = helper(n, index)
+    helper(n, 0, container, result)
+    return result
+
+
+if __name__ == "__main__":
+    print(generate(2))
