@@ -1,11 +1,12 @@
 def helper(nums: list, k: int, index: int, subset: list, result: list):
-    if sum(subset) == k:
+    if k == 0:
         result.append(subset.copy())
+
     elif k > 0 and index < len(nums):
 
         helper(nums, k, index + 1, subset, result)
         subset.append(nums[index])
-        helper(nums, k, index, subset, result)  
+        helper(nums, k - nums[index], index, subset, result)
         subset.pop()
 
 
