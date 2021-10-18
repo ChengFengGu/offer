@@ -10,4 +10,8 @@ def helper(n: int, k: int, index: int, combination: list, result: list):
 def subsets(n,k):
     result = []
     combination = []
-    helper(n,k,)
+    helper(n,k,0,combination,result)
+    return result
+
+if __name__ == '__main__':
+    print(sorted(subsets(5,3)))
