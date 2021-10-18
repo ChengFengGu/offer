@@ -10,13 +10,15 @@
 # %%
 
 # # v1  带缓存的递归代码
-def helper(nums:list,i:int,dp:list):
+def helper(nums: list, i: int, dp: list):
 
     if i < 2:
         dp[i] = nums[i]
-    else:
-        dp
+    elif i < len(nums):
+        helper(nums,i+1,dp)
+        dp[i] = max(dp[i - 2] + nums[i], dp[i - 1])
 
 
-def rob(nums:list):
-    pass
+def rob(nums: list):
+    dp = []
+    helper(nums,0,dp)
