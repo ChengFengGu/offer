@@ -14,4 +14,8 @@ def helper(nums:int,index:int,set:list,result:list):
 def sets(nums:list):
     set = []
     result = []
-    
+    helper(nums,0,set,result)
+    return result
+
+if __name__ == '__main__':
+    print(sets([1,2,3]))
