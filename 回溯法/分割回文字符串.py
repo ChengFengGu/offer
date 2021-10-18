@@ -29,7 +29,7 @@ def generate(string: str):
     container = ""
     result = []
     helper(string, 0, container, result)
-    return sorted(result)
+    return result
 
 
 if __name__ == "__main__":
