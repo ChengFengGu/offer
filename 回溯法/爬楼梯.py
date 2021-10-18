@@ -20,15 +20,16 @@ def mincost(cost: list):
     return min(dp[len(cost) - 2], dp[len(cost) - 1])
 
 
-
-def mincost_v2(cost:list):
+def mincost_v2(cost: list):
     dp = [0 for _ in range(len(cost))]
     dp[0] = cost[0]
     dp[1] = cost[1]
 
-    for i in range(3,len(cost)):
-        if dp[]
+    for i in range(3, len(cost)):
+        dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
+
+    return min(dp[len(cost) - 2], dp[len(cost) - 1])
 
 
 if __name__ == "__main__":
-    print(mincost([7, 3, 5, 5, 5]))
+    print(mincost_v2([7, 3, 5, 5, 5]))
