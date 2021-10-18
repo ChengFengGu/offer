@@ -14,6 +14,8 @@ def helper(nums:list,i:int,dp:list):
 
     if i < 2:
         dp[i] = nums[i]
+    else:
+        dp
 
 
 def rob(nums:list):
