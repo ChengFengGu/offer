@@ -7,7 +7,8 @@ def helper(nums: int, index: int, result: list):
         permutation = []
         for num in nums:
             permutation.append(num)
-        result.append(permutation.copy())
+        if permutation not in result:
+            result.append(permutation.copy())
     else:
         for j in range(len(nums)):
             swap(nums, index, j)
