@@ -12,7 +12,7 @@
 
 
 # ====================================================
-# 递归版本 带缓存
+# 递归版本 带缓存 # TODO
 # ====================================================
 def helper(cost:list,i:int,n:int,r:list,g:list,b:list,dp:list):
     
@@ -24,12 +24,17 @@ def helper(cost:list,i:int,n:int,r:list,g:list,b:list,dp:list):
     elif i < n:
         if dp[i] == -1:
             r.append(min(g[i-1],b[i-1])+cost[i][0])
-            helper(cost,i+1,n,)
+            helper(cost,i+1,n,r,g,b,dp)
+            
+
+            g.append(min)
         
     
     pass
 
-
+#============================
+#  O(n)版本
+#============================
 
 def lowest_cost(cost: list):
     n = len(cost)
