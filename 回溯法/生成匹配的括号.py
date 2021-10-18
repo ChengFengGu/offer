@@ -21,13 +21,20 @@
 #         container.pop()
 
 
-def helper(left:int,right:int,parethesis,result):
-    
+def helper(left: int, right: int, parethesis, result):
+    if left == 0 and right == 0:
+        result.append(parethesis)
+        return
+    if left > 0:
+        helper(left - 1, right, parethesis + "(", result)
+    if left < right:
+        helper(left, right - 1, parethesis + ")", result)
+
 
 def generate(n: int):
-    container = []
+    container = ""
     result = []
-    # helper(n, 0, container, result)
+    helper(n, 0, container, result)
     return result
 
 
