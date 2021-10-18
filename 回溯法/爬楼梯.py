@@ -15,9 +15,9 @@ def helper(cost: list, i: int, dp: list):
 
 
 def mincost(cost: list):
-    dp = []
-    helper(cost, len(cost) - 1), helper(cost, len(cost) - 2)
-    
+    dp = [0 for i in range(len(cost))]
+    helper(cost, len(cost) - 1, dp)
+    return min(dp[len(cost) - 2], dp[len(cost) - 1])
 
 
 if __name__ == "__main__":
