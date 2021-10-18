@@ -11,11 +11,17 @@
 #             b(i) = min(r(i-1),g(i-1)) + cost[i][2]
 
 
+# 递归版本 带缓存
+
+def helper(cost:list,)
+
+
+
 def helper(cost: list, i: int, n: int):
     pass
 
 
-def main(cost: list):
+def lowest_cost(cost: list):
     n = len(cost)
     dp = [-1 for _ in range(n)]
     r = [-1 for _ in range(n)]
@@ -28,14 +34,15 @@ def main(cost: list):
             r[i] = cost[i][0]
             g[i] = cost[i][1]
             b[i] = cost[i][2]
-        r[i] = min(g[i - 1], b[i - 1]) + cost[i][0]
-        g[i] = min(r[i - 1], b[i - 1]) + cost[i][1]
-        b[i] = min(r[i - 1], g[i - 1]) + cost[i][2]
+        else:
+            r[i] = min(g[i - 1], b[i - 1]) + cost[i][0]
+            g[i] = min(r[i - 1], b[i - 1]) + cost[i][1]
+            b[i] = min(r[i - 1], g[i - 1]) + cost[i][2]
 
         dp[i] = min(r[i], g[i], b[i])
     return dp[n-1]
 
 
 if __name__ == "__main__":
-    result = main([[17, 2, 16], [15, 14, 5], [13, 3, 1]])
+    result = lowest_cost([[17, 2, 16], [15, 14, 5], [13, 3, 1]])
     print(result)
