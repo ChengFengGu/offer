@@ -18,12 +18,10 @@ def helper(string: str, index: int, container: str, result: list):
 
     if judge(container):
         result.append(container)
-    if index < len(string):  # 从当前字符串算起，一共有多少个
-        for j in range(index,len(string)):
-            container = ""
-            container += string[index]
-            helper(string, index + 1, container, result)
-            container = container[:-1]
+    if index < len(string):  # 一共有多少个字串，都要得到
+        container = string[index]
+        for j in range(index+1,len(string)):
+            
 
 
 def generate(string: str):
