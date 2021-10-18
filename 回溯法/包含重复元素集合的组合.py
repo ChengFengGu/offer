@@ -1,8 +1,9 @@
 def helper(nums: list, k: int, index: int, subset: list, result: list):
     if k == 0:
         if sorted(subset.copy()) in result:
-            continue
-        result.append(sorted(subset.copy()))
+            pass
+        else:
+            result.append(sorted(subset.copy()))
     elif index < len(nums):
         helper(nums, k, index + 1, subset, result)
         subset.append(nums[index])
