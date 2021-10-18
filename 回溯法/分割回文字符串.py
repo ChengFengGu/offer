@@ -4,6 +4,8 @@
 def judge(string: str):
     if len(string) == 0:
         return False
+    if len(string) == 1:
+        return True
     mid = len(string) // 2
     flag = True
     for i in range(mid):
@@ -16,10 +18,12 @@ def helper(string: str, index: int, container: str, result: list):
 
     if judge(container):
         result.append(container)
-    if index < len(string):
-        container += string[index]
-        helper(string, index + 1, container, result)
-        container = container[:-1]
+    if index < len(string):  # 从当前字符串算起，一共有多少个
+        for j in range(index,len(string)):
+            container = ""
+            container += string[index]
+            helper(string, index + 1, container, result)
+            container = container[:-1]
 
 
 def generate(string: str):
