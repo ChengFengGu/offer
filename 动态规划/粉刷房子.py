@@ -10,7 +10,8 @@
 #             g(i) = min(r(i-1),b(i-1)) + cost[i][1]
 #             b(i) = min(r(i-1),g(i-1)) + cost[i][2]
 
-
+def helper(cost:list,i:int,n:int):
+    pass
 
 
 def main(cost: list):
