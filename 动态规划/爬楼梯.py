@@ -4,7 +4,7 @@
 #     else:
 #         return min(helper(cost, index - 1), helper(cost, index - 2)) + cost[index]
 
-
+# 百度校招笔试题,#TODO
 def helper(cost: list, i: int, dp: list):
     if i < 2:
         dp[i] = cost[i]
