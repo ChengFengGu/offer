@@ -1,14 +1,12 @@
-'''
-Author: your name
-Date: 2021-10-18 10:34:56
-LastEditTime: 2021-10-18 10:34:56
-LastEditors: Please set LastEditors
-Description: In User Settings Edit
-FilePath: /offer/回溯法/允许重复选择元素的组合.py
-'''
-
-def helper()
 
 
-def subsets(nums:list,k:int):
+
+def helper(nums: list, k: int, index: int, subset: list, result: list):
+    if sum(subset) == k:
+        result.append(subset.copy())
+    elif index < len(nums):
+        subset.append(nums[index])
+
+
+def subsets(nums: list, k: int):
     pass
