@@ -2,6 +2,8 @@
 
 
 def judge(string: str):
+    if len(string) == 0:
+        return False
     mid = len(string) // 2
     flag = True
     for i in range(mid):
@@ -14,10 +16,10 @@ def helper(string: str, index: int, container: str, result: list):
 
     if judge(container):
         result.append(container)
-    elif index <= len(string):
-        container.append(string[index])
+    if index < len(string):
+        container += string[index]
         helper(string, index + 1, container, result)
-        container.pop()
+        container = container[:-1]
 
 
 def generate(string: str):
