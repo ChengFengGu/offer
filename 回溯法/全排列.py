@@ -3,7 +3,10 @@
 def helper(nums:int,index:int,set:list,result:list):
 
     if len(set) == len(nums):
-        result.append(set.copy())
+        permutation = []
+        for num in nums:
+            permutation.append(num)
+        result.append(permutation.copy())
     elif index < len(nums):
         helper(nums,index+1,set,result)
         set.append(nums[index])
