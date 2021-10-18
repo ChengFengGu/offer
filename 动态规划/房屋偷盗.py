@@ -12,18 +12,23 @@
 # # v1  带缓存的递归代码
 def helper(nums: list, i: int, dp: list):
 
-    if i < 2:
+    if i == 0:
         dp[i] = nums[i]
-    elif i < len(nums):
-        helper(nums, i + 1, dp)
+    elif i == 1:
+        dp[1] == max(nums[1], nums[0])
+    elif 
+
+    elif i < len(nums) and i >= 2:
+        helper(nums, i - 1, dp)
         dp[i] = max(dp[i - 2] + nums[i], dp[i - 1])
 
 
 def rob(nums: list):
     dp = [0 for i in range(len(nums))]
     length = len(nums)
-    helper(nums, length, dp)
+    helper(nums, 0, dp)
     return max(dp[len - 1], dp[len - 2])
 
-if __name__ == '__main__':
-    rob([1,2,3,4,5])
+
+if __name__ == "__main__":
+    rob([1, 2, 3, 4, 5])
