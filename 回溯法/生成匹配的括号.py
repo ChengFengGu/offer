@@ -21,6 +21,7 @@
 #         container.pop()
 
 
+# 剑指offer https://weread.qq.com/web/reader/4e132bc07263ff664e11075kb5332110237b53b3a3d68d2
 def helper(left: int, right: int, parethesis, result):
     if left == 0 and right == 0:
         result.append(parethesis)
@@ -34,9 +35,9 @@ def helper(left: int, right: int, parethesis, result):
 def generate(n: int):
     container = ""
     result = []
-    helper(n, 0, container, result)
+    helper(n, n, container, result)
     return result
 
 
 if __name__ == "__main__":
-    print(generate(2))
+    print(generate(3))
