@@ -16,9 +16,14 @@
 # ====================================================
 def helper(cost:list,i:int,n:int,r:list,g:list,b:list,dp:list):
     
-    if i == n-1:
-        dp[i] == min(r[i],g[i],b[i])
+    if i == 0:
+        dp[i] = min(cost[i])
+        r[i] = cost[i][0]
+        g[i] = cost[i][1]
+        b[i] = cost[i][2]
     elif i < n:
+        if dp[i] == -1:
+            
         
     
     pass
