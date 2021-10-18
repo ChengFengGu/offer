@@ -6,9 +6,9 @@ def helper(cost: list, index: int):
 
 
 def mincost(cost: list):
-    result = helper(cost, 0)
+    result = min(helper(cost, len(cost) - 1), helper(cost, len(cost) - 2))
     return result
 
 
 if __name__ == "__main__":
-    print(mincost([3, 5, 3,1,7]))
+    print(mincost([7,3,5,5,5]))
