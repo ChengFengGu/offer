@@ -17,3 +17,7 @@ def normal_distribution():
     plt.xlabel('x')
     plt.ylabel('Probability density',fontsize=15)
     plt.savefig("推荐算法/prob_codes/imgs/normal.png")
+
+
+if __name__ == '__main__':
+    normal_distribution()
