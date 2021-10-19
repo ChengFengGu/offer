@@ -28,6 +28,17 @@ def least_times(s:str):
 
     for i in range(len(s)):
         if i == 0:
+            if s[i] == '1': 
+                f[i] = 1
+                g[i] = 0
+            elif s[i] == '0':
+                f[i] = 0
+                g[i] = 1
+        elif i<len(s):
+            if s[i-1] == '0':
+                if s[i] == '0':
+                    f[i] = f[i-1]
+                    g
             
 
 
