@@ -16,7 +16,7 @@ def binom_pmf_test():
     plt.plot(k, binomal, "o-")
     plt.xlabel("Number of successive")
     plt.ylabel("Probability of success", fontsize=15)
-    plt.im
+    plt.savefig("推荐算法/prob_codes/imgs/binom.png")
 
 if __name__ == '__main__':
 
