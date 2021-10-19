@@ -38,7 +38,19 @@ def least_times(s:str):
             if s[i-1] == '0':
                 if s[i] == '0':
                     f[i] = f[i-1]
-                    g
+                    g[i] = min(f[i-1],g[i-1]) + 1
+                if s[i] == '1':
+                    f[i] = f[i-1] + 1
+                    g[i] = min(f[i-1],g[i-1])
+            elif s[i-1] == '1':
+                if s[i] == '0':
+                    f[i] = f[i-1] + 1
+                    g[i] = min(f[i-1],g[i-1]) + 1
+                elif s[i] == '1':
+                    f[i] = f[i-1] + 1
+                    g[i] = min(f[i-1],g[i-1])
+    return min(f[n-1],g[n-1])
+                
             
 
 
