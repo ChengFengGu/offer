@@ -16,4 +16,4 @@ def normal_distribution():
     plt.title(f'Norm mu:{mu:.2f} sigma:{sigma:.2f}')
     plt.xlabel('x')
     plt.ylabel('Probability density',fontsize=15)
-    plt.
+    plt.savefig("推荐算法/prob_codes/imgs/normal.png")
