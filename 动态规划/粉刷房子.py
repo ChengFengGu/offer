@@ -14,27 +14,32 @@
 # ====================================================
 # 递归版本 带缓存 # TODO
 # ====================================================
-def helper(cost:list,i:int,n:int,r:list,g:list,b:list,dp:list):
-    
+def helper(cost: list, i: int, n: int, r: list, g: list, b: list, dp: list):
+
     if i == 0:
         dp[i] = min(cost[i])
         r[i] = cost[i][0]
         g[i] = cost[i][1]
-        b[i] = cost[i][2]        
+        b[i] = cost[i][2]
+    elif i == n:
+        r[i] = cost[i][0] + min(g[i - 1], b[i - 1])
+        g[i] = cost[i][1] + min(r[i - 1], b[i - 1])
+        b[i] = cost[i][2] + min(r[i - 1], g[i - 1])
+
     elif i < n:
         if dp[i] == -1:
-            r.append(min(g[i-1],b[i-1])+cost[i][0])
-            helper(cost,i+1,n,r,g,b,dp)
+            r.append(min(g[i - 1], b[i - 1]) + cost[i][0])
+            helper(cost, i + 1, n, r, g, b, dp)
             
-
             g.append(min)
-        
-    
+
     pass
 
-#============================
+
+# ============================
 #  O(n)版本
-#============================
+# ============================
+
 
 def lowest_cost(cost: list):
     n = len(cost)
@@ -55,7 +60,7 @@ def lowest_cost(cost: list):
             b[i] = min(r[i - 1], g[i - 1]) + cost[i][2]
 
         dp[i] = min(r[i], g[i], b[i])
-    return dp[n-1]
+    return dp[n - 1]
 
 
 if __name__ == "__main__":
