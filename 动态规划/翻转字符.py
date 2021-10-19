@@ -16,7 +16,19 @@
 # i = 1 时 输入为0 S(i-1) 为 0 : f(1) = f(0) = 0 , g(1) = min(0,1) + 1 = 1
 # i = 2 时 输入为1 S(i-1) 为 0 : f(2) = f(1) + 1 = 1 , g(2) = min(0,1) = 0
 # i = 3 时 输入为1 S(i-1) 为 1 : f(3) = f(2) + 1 = 2 , g(3) = min(0,1) = 0
-# i = 4 时 输入为0 S(i-1) 为 1 : f(4) = f(3) + 1 = 3 , g()
+# i = 4 时 输入为0 S(i-1) 为 1 : f(4) = f(3) + 1 = 3 , g(4) = min(0,1) + 1 = 1
+
+# 最终输出为 min(f(n-1),g(n-1)) = 1
+
+
+def least_times(s:str):
+    f = [-1 for _ in range(len(s))]
+    g = [-1 for _ in range(len(s))]
+
+
+    for i in range(len(s)):
+        if i == 0:
+            
 
 
 if __name__ == "__main__":
