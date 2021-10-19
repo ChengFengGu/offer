@@ -21,38 +21,36 @@
 # 最终输出为 min(f(n-1),g(n-1)) = 1
 
 
-def least_times(s:str):
+def least_times(s: str):
+    n = len(s)
     f = [-1 for _ in range(len(s))]
     g = [-1 for _ in range(len(s))]
 
-
     for i in range(len(s)):
         if i == 0:
-            if s[i] == '1': 
+            if s[i] == "1":
                 f[i] = 1
                 g[i] = 0
-            elif s[i] == '0':
+            elif s[i] == "0":
                 f[i] = 0
                 g[i] = 1
-        elif i<len(s):
-            if s[i-1] == '0':
-                if s[i] == '0':
-                    f[i] = f[i-1]
-                    g[i] = min(f[i-1],g[i-1]) + 1
-                if s[i] == '1':
-                    f[i] = f[i-1] + 1
-                    g[i] = min(f[i-1],g[i-1])
-            elif s[i-1] == '1':
-                if s[i] == '0':
-                    f[i] = f[i-1] + 1
-                    g[i] = min(f[i-1],g[i-1]) + 1
-                elif s[i] == '1':
-                    f[i] = f[i-1] + 1
-                    g[i] = min(f[i-1],g[i-1])
-    return min(f[n-1],g[n-1])
-                
-            
+        elif i < len(s):
+            if s[i - 1] == "0":
+                if s[i] == "0":
+                    f[i] = f[i - 1]
+                    g[i] = min(f[i - 1], g[i - 1]) + 1
+                if s[i] == "1":
+                    f[i] = f[i - 1] + 1
+                    g[i] = min(f[i - 1], g[i - 1])
+            elif s[i - 1] == "1":
+                if s[i] == "0":
+                    f[i] = f[i - 1] + 1
+                    g[i] = min(f[i - 1], g[i - 1]) + 1
+                elif s[i] == "1":
+                    f[i] = f[i - 1] + 1
+                    g[i] = min(f[i - 1], g[i - 1])
+    return min(f[n - 1], g[n - 1])
 
 
 if __name__ == "__main__":
-    pass
+    print(least_times("0011001"))
