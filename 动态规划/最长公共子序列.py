@@ -5,12 +5,13 @@
 
 #%%
 
-def longest_sub_array(s1:str,s2:str):
-    
+
+def longest_sub_array(s1: str, s2: str):
+
+    dp = [0 for _ in range(max(len(s1), len(s2)))]
     
 
-    pass
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     pass
