@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import xgboost as xgb
-from sklearn.metrics import accuracy_score, roc_auc_score, roc_curve
+from sklearn.metrics import accuracy_score, roc_auc_score, roc_curve, auc
 from sklearn.model_selection import train_test_split
 
 
@@ -53,23 +53,24 @@ preds = bst.predict(dtest)  # 预测
 # accuracy_score(preds,y_test)
 
 
-
 #%%
 
 fpr, tpr, thresholds = roc_curve(y_test, preds, pos_label=1)
 roc_score = roc_auc_score(y_test, preds)
+roc_auc = auc(fpr, tpr)
 
 thresholds
 
 # %%
 import matplotlib.pyplot as plt
-plt.title('Receiver Operating Characteristic')
-plt.plot(fpr, tpr, 'b', label = 'AUC = %0.2f' % roc_auc)
-plt.legend(loc = 'lower right')
-plt.plot([0, 1], [0, 1],'r--')
+
+plt.title("Receiver Operating Characteristic")
+plt.plot(fpr, tpr, "b", label="AUC = %0.2f" % roc_auc)
+plt.legend(loc="lower right")
+plt.plot([0, 1], [0, 1], "r--")
 plt.xlim([0, 1])
 plt.ylim([0, 1])
-plt.ylabel('True Positive Rate')
-plt.xlabel('False Positive Rate')
+plt.ylabel("True Positive Rate")
+plt.xlabel("False Positive Rate")
 plt.show()
 # %%
