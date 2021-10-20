@@ -29,7 +29,7 @@ data = pd.DataFrame(data, columns=["x1", "x2", "label"])
 
 
 sns.scatterplot(data["x1"], data["x2"], hue=data["label"])
-plt.savefig("ROC曲线.png")
+plt.savefig("机器学习基础/代码/imgs/数据分布.png")
 
 
 x_train = data[["x1", "x2"]].values
