@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+#%%
 import os
 
 import matplotlib.pyplot as plt
@@ -11,6 +12,8 @@ import xgboost as xgb
 from sklearn.metrics import accuracy_score, roc_auc_score, roc_curve
 from sklearn.model_selection import train_test_split
 
+
+#%%
 x1 = np.arange(0, 100, 1)
 a = 0.3 * x1 + 1
 b = 0.3 * x1 - 1
@@ -27,11 +30,12 @@ for a_t, b_t in zip(x1.tolist(), x2.tolist()):
     idx += 1
 data = pd.DataFrame(data, columns=["x1", "x2", "label"])
 
-
+#%%
 sns.scatterplot(data["x1"], data["x2"], hue=data["label"])
-plt.savefig("机器学习基础/代码/imgs/数据分布.png")
+plt.savefig("imgs/数据分布.png")
+plt.show()
 
-
+#%%
 x_train = data[["x1", "x2"]].values
 y_train = data["label"].values.astype("int")
 
@@ -50,6 +54,8 @@ preds = bst.predict(dtest)  # 预测
 
 
 roc_auc_score(y_test, preds)
+
+#%%
 
 fpr, tpr, thresholds = roc_curve(y_test, preds, pos_label=1)
 
