@@ -53,10 +53,23 @@ preds = bst.predict(dtest)  # 预测
 # accuracy_score(preds,y_test)
 
 
-roc_auc_score(y_test, preds)
 
 #%%
 
 fpr, tpr, thresholds = roc_curve(y_test, preds, pos_label=1)
+roc_score = roc_auc_score(y_test, preds)
 
 thresholds
+
+# %%
+import matplotlib.pyplot as plt
+plt.title('Receiver Operating Characteristic')
+plt.plot(fpr, tpr, 'b', label = 'AUC = %0.2f' % roc_auc)
+plt.legend(loc = 'lower right')
+plt.plot([0, 1], [0, 1],'r--')
+plt.xlim([0, 1])
+plt.ylim([0, 1])
+plt.ylabel('True Positive Rate')
+plt.xlabel('False Positive Rate')
+plt.show()
+# %%
