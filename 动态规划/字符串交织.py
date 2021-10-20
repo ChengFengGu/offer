@@ -3,9 +3,13 @@
 # https://weread.qq.com/web/reader/4e132bc07263ff664e11075k09332a2023b093f65e0888c
 
 
-def str_mix(s1:str,s2:str,s3:str):
-    dp = []
+def str_mix(s1: str, s2: str, s3: str):
+    dp = [[0 for _ in range(len(s2))] for _ in range(len(s1))]
+
+    for i in range(len(s1)):
+        for j in range(len(s2)):
+            pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
