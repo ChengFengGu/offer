@@ -8,8 +8,12 @@
 
 def longest_sub_array(s1: str, s2: str):
 
-    dp = [0 for _ in range(max(len(s1), len(s2)))]
-    
+    dp = [[0 for _ in range(len(s1))] for _ in range(len(s2))]
+
+    for i in range(len(s1)):
+        for j in range(len(s2)):
+            if i == 0 or j == 0:
+                
 
 
 if __name__ == "__main__":
