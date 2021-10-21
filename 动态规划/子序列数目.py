@@ -28,7 +28,7 @@ class Solution:
 
         for i in range(len(s)):
             if i == 0:
-                dp[i][0] = 1  # t 为空串
+                dp[i+1][0] = 1  # t 为空串
             for j in range(len(t)):
                 if s[i] == t[j]:
                     dp[i + 1][j + 1] = dp[i][j] + dp[i][j + 1]
