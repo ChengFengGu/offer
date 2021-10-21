@@ -2,16 +2,14 @@ class Solution:
     def minimumTotal(self, triangle:list) -> int:
         if len(triangle) == 0:
             return 0
-        max_value = max([max([e for e in triangle[i]]) for i in range(len(triangle))])
-        width =  max([len(line) for line in triangle])
-        dp = [[max_value + 1 for _ in range(width))] for i in range(len(triangle))]
-
+        dp = [[0 for _ in range(len(triangle[i]))] for i in range(len(triangle))]
+        
         dp[0][0] = triangle[0][0]
 
-        for i in range(1, len(triangle)):  # j代表层数
-            for j in range(1, len(triangle[i])):  #
-                dp[i][j] = min(dp[i - 1][j], dp[i - 1][j - 1]) + triangle[i][j]
-        return min(dp[len(triangle) - 1])
+        for i in range(1,len(triangle)): # i代表层数
+            for j in range(1,len(triangle[i])): # 
+                dp[i][j] = min(dp[i-1][j],dp[i-1][j-1]) + triangle[i][j]
+        return min(dp[len(triangle)-1])
 
 
 if __name__ == "__main__":
