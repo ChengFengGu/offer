@@ -11,7 +11,8 @@ class Solution:
         dp = [[False for _ in range(len(s2))] for _ in range(len(s1))]
         dp[0][0] = True
 
-        for 
+        for i in range(len(s1)):
+            dp[i+1][0] =  (s1[i] == s3[i] and dp[i][0])
 
 if __name__ == "__main__":
     s = Solution()
