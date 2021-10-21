@@ -5,25 +5,32 @@
 
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
-        
+
         if len(s1) == 0 and len(s2) == 0 and len(s3) == 0:
             return True
 
+        if len(s1) == 0:
+            return True if s2 == s3 else False
+        if len(s2) == 0:
+            return True if s1 == s3 else False
+
         dp = [[0 for _ in range(len(s2))] for _ in range(len(s1))]
-        
+
         for i in range(len(s1)):
             for j in range(len(s2)):
                 if i == 0:
-                    if s[:i+j] == 
-                    dp[i][j] = 1
+                    if s2[:j] == s3[: i + j]:
+                        dp[i][j] = 1
                 if j == 0:
-                    dp[i][j] = 1
-                if s1[i] == s3[i+j]:
-                    dp[i][j] = dp[i-1][j]
-                if s2[j] == s3[i+j]:
-                    dp[i][j] = dp[i][j-1]
-        return (True if  dp[len(s1)-1][len(s2)-1] == 1 else False)
+                    if s1[:i] == s3[: i + j]:
+                        dp[i][j] = 1
+                if s1[i] == s3[i + j]:
+                    dp[i][j] = dp[i - 1][j]
+                if s2[j] == s3[i + j]:
+                    dp[i][j] = dp[i][j - 1]
+        return True if dp[len(s1) - 1][len(s2) - 1] == 1 else False
+
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.isInterleave("abc","def","abcdef"))
+    print(s.isInterleave("abc", "def", "abcdef"))
