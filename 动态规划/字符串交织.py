@@ -12,7 +12,10 @@ class Solution:
         dp[0][0] = True
 
         for i in range(len(s1)):
-            dp[i+1][0] =  (s1[i] == s3[i] and dp[i][0])
+            dp[i + 1][0] = s1[i] == s3[i] and dp[i][0]
+        for j in range(len(s2)):
+            dp[0][j + 1] = s2[j] == s3[j] and dp[0][j]
+        
 
 if __name__ == "__main__":
     s = Solution()
