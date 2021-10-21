@@ -3,27 +3,27 @@
 # https://weread.qq.com/web/reader/4e132bc07263ff664e11075k09332a2023b093f65e0888c
 
 
-class Solution:
-    def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
+    class Solution:
+        def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
 
-        if len(s1) + len(s2) != len(s3):
-            return False
-        dp = [[False for _ in range(len(s2) + 1)] for _ in range(len(s1) + 1)]
-        dp[0][0] = True
+            if len(s1) + len(s2) != len(s3):
+                return False
+            dp = [[False for _ in range(len(s2) + 1)] for _ in range(len(s1) + 1)]
+            dp[0][0] = True
 
-        for i in range(len(s1)):
-            dp[i + 1][0] = s1[i] == s3[i] and dp[i][0]
-        for j in range(len(s2)):
-            dp[0][j + 1] = s2[j] == s3[j] and dp[0][j]
-        for i in range(len(s1)):
+            for i in range(len(s1)):
+                dp[i + 1][0] = s1[i] == s3[i] and dp[i][0]
             for j in range(len(s2)):
-                ch1 = s1[i]
-                ch2 = s2[j]
-                ch3 = s3[i + j + 1]
-                dp[i + 1][j + 1] = (ch1 == ch3 and dp[i][j + 1]) or (
-                    ch2 == ch3 and dp[i + 1][j]
-                )
-        return dp[len(s1)][len(s2)]
+                dp[0][j + 1] = s2[j] == s3[j] and dp[0][j]
+            for i in range(len(s1)):
+                for j in range(len(s2)):
+                    ch1 = s1[i]
+                    ch2 = s2[j]
+                    ch3 = s3[i + j + 1]
+                    dp[i + 1][j + 1] = (ch1 == ch3 and dp[i][j + 1]) or (
+                        ch2 == ch3 and dp[i + 1][j]
+                    )
+            return dp[len(s1)][len(s2)]
 
 
 if __name__ == "__main__":
