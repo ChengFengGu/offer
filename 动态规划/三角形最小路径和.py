@@ -11,13 +11,10 @@ class Solution:
 
         dp[0][0] = triangle[0][0]
         for i in range(width):
-            dp[i][0] = sum([dp[k][0] for k in range()])
+            dp[i][0] = sum([dp[k][0] for k in range(0, i)]) + triangle[i][0]
         for i in range(1, len(triangle)):  # j代表层数
             for j in range(0, len(triangle[i])):  #
-                if j == 0:
-                    dp[i][j] = dp[i][0] + triangle[i][j]
-                else:
-                    dp[i][j] = min(dp[i - 1][j], dp[i - 1][j - 1]) + triangle[i][j]
+                dp[i][j] = min(dp[i - 1][j], dp[i - 1][j - 1]) + triangle[i][j]
         return min(dp[len(triangle) - 1])
 
 
