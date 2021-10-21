@@ -3,13 +3,22 @@
 # https://weread.qq.com/web/reader/4e132bc07263ff664e11075k09332a2023b093f65e0888c
 
 
-def str_mix(s1: str, s2: str, s3: str):
-    dp = [[0 for _ in range(len(s2))] for _ in range(len(s1))]
-
-    for i in range(len(s1)):
-        for j in range(len(s2)):
-            pass
-
+class Solution:
+    def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
+        dp = [[-1 for _ in range(len(s2))] for _ in range(len(s1))]
+        
+        for i in range(len(s1)):
+            for j in range(len(s2)):
+                if i == 0:
+                    dp[i][j] = 1
+                if j == 0:
+                    dp[i][j] = 1
+                if s1[i] == s3[i+j]:
+                    dp[i][j] = dp[i-1][j]
+                if s2[j] == s3[i+j]:
+                    dp[i][j] = dp[i][j-1]
+        return (True if  dp[len(s1)-1][len(s2)-1] == 1 else False)
 
 if __name__ == "__main__":
-    pass
+    s = Solution()
+    print(s.isInterleave("","",""))
