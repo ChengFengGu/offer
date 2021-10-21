@@ -6,20 +6,12 @@
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
 
-        if len(s1) == 0 and len(s2) == 0 and len(s3) == 0:
-            return True
+        if len(s1) + len(s2) != len(s3):
+            return False
+        dp = [[False for _ in range(len(s2))] for _ in range(len(s1))]
+        dp[0][0] = True
 
-        if len(s1) == 0:
-            return True if s2 == s3 else False
-        if len(s2) == 0:
-            return True if s1 == s3 else False
-
-        dp = [[0 for _ in range(len(s2))] for _ in range(len(s1))]
-
-        for i in range(len(s1)):
-            for j in range(len(s2)):
-                if i == 0:
-                    
+        for 
 
 if __name__ == "__main__":
     s = Solution()
