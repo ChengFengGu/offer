@@ -8,11 +8,11 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if i == 0:
-                    dp[0][j] = sum([grid[0][k] for k in range(0, j)])
-                    continue
+                    dp[0][j] = sum([grid[0][k] for k in range(0, j)]) + grid[i][j]
+
                 if j == 0:
-                    dp[i][0] = sum([grid[k][0] for k in range(0, i)])
-                    continue
+                    dp[i][0] = sum([grid[k][0] for k in range(0, i)]) + grid[i][j]
+
                 else:
                     dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]
         return dp[m - 1][n - 1]
