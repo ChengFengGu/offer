@@ -2,7 +2,9 @@ class Solution:
     def minimumTotal(self, triangle:list) -> int:
         if len(triangle) == 0:
             return 0
-        dp = [[0 for _ in range(len(triangle[i]))] for i in range(len(triangle))]
+        max_value = max([max([e for e in triangle[i]]) for i in range(len(triangle))])
+        width =  max([len(line) for line in triangle])
+        dp = [[max_value + 1 for _ in range(width))] for i in range(len(triangle))]
 
         dp[0][0] = triangle[0][0]
 
