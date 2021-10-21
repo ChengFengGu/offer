@@ -8,7 +8,7 @@ class Solution:
 
         if len(s1) + len(s2) != len(s3):
             return False
-        dp = [[False for _ in range(len(s2))] for _ in range(len(s1))]
+        dp = [[False for _ in range(len(s2) + 1)] for _ in range(len(s1) + 1)]
         dp[0][0] = True
 
         for i in range(len(s1)):
@@ -23,9 +23,9 @@ class Solution:
                 dp[i + 1][j + 1] = (ch1 == ch3 and dp[i][j + 1]) or (
                     ch2 == ch3 and dp[i + 1][j]
                 )
-        return dp[s]
+        return dp[len(s1)][len(s2)]
 
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.isInterleave("abc", "def", "abcdef"))
+    print(s.isInterleave("", "", ""))
