@@ -21,7 +21,7 @@ class Solution:
 if __name__ == "__main__":
     s = Solution()
 
-    # result = s.minPathSum([[1, 3, 1], [1, 5, 1], [4, 2, 1]])
-    result = s.minPathSum([[1, 3], [1, 5]])
+    result = s.minPathSum([[1, 3, 1], [1, 5, 1], [4, 2, 1]])
+    # result = s.minPathSum([[1, 3], [1, 5]])
 
     print(result)
