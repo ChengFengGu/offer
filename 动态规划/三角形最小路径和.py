@@ -16,7 +16,7 @@ class Solution:
                 if j == 0:
                     dp[i][j] = min(dp[i][0], dp[i][1]) + triangle[i][j]
                 else:
-                dp[i][j] = min(dp[i - 1][j], dp[i - 1][j - 1]) + triangle[i][j]
+                    dp[i][j] = min(dp[i - 1][j], dp[i - 1][j + 1]) + triangle[i][j]
         return min(dp[len(triangle) - 1])
 
 
