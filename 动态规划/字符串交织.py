@@ -19,19 +19,7 @@ class Solution:
         for i in range(len(s1)):
             for j in range(len(s2)):
                 if i == 0:
-                    if s2[j] == s3[i + j]:
-                        dp[i][j] = 1
-                        continue
-                if j == 0:
-                    if s1[i] == s3[i + j]:
-                        dp[i][j] = 1
-                        continue
-                if s1[i] == s3[i + j]:
-                    dp[i][j] = dp[i - 1][j]
-                if s2[j] == s3[i + j]:
-                    dp[i][j] = dp[i][j - 1]
-        return True if dp[len(s1) - 1][len(s2) - 1] == 1 else False
-
+                    
 
 if __name__ == "__main__":
     s = Solution()
