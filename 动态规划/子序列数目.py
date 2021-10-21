@@ -15,9 +15,11 @@ class Solution:
 
         for i in range(len(s)):
             for j in range(len(t)):
-                if s[i] == t[j]
-                dp[i+1][j+1] = dp[i][j] + dp[i][j+1]
-
+                if s[i] == t[j]:
+                    dp[i+1][j+1] = dp[i][j] + dp[i][j+1]
+                else:
+                    dp[i+1][j+1] = dp[i][j+1]
+        return dp[len(s)][len(t)]
 
 if __name__ == "__main__":
     s = Solution()
