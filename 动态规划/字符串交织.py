@@ -21,14 +21,15 @@ class Solution:
                 if i == 0:
                     if s2[j] == s3[i + j]:
                         dp[i][j] = 1
+                        continue
                 if j == 0:
                     if s1[i] == s3[i + j]:
                         dp[i][j] = 1
-                else:
-                    if s1[i] == s3[i + j]:
-                        dp[i][j] = dp[i - 1][j]
-                    if s2[j] == s3[i + j]:
-                        dp[i][j] = dp[i][j - 1]
+                        continue
+                if s1[i] == s3[i + j]:
+                    dp[i][j] = dp[i - 1][j]
+                if s2[j] == s3[i + j]:
+                    dp[i][j] = dp[i][j - 1]
         return True if dp[len(s1) - 1][len(s2) - 1] == 1 else False
 
 
