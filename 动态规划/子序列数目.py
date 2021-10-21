@@ -18,7 +18,7 @@ class Solution:
                 if s[i] != t[j]:
                     dp[i][j] = dp[i - 1][j]
                 else:
-                    dp[i][j] = dp[i - 1][j] + 1
+                    dp[i][j] = dp[i - 1][j] + dp[i-1][j-1]
         return dp[len(s) - 1][len(t) - 1]
 
 
