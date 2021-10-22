@@ -62,7 +62,7 @@ class Solutionv2(object):
             else:
                 dp[i % 3] = dp[(i - 1) % 3] + dp[(i - 2) % 3]
                 sum += dp[i % 3]
-        return dp[-1]
+        return sum
 
 
 if __name__ == "__main__":
