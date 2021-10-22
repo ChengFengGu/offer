@@ -58,9 +58,7 @@ class Solutionv2(object):
         sum = 0
         for i in range(3,number):
             dp[i] = dp[i-1] + dp[i-2]
-        for item in dp[:-1]:
-            sum += item
-        return sum + 2  #这是为什么？#TODO
+        return dp[-1]
 
 
 if __name__ == "__main__":
