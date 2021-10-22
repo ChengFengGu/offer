@@ -19,7 +19,9 @@ class Model(nn.Module):
 
         self.cls = nn.Sequential(
             nn.Linear(512,256)
+            nn.ReLU()
             nn.Linear(256,128)
+            nn.ReLU()
             nn.softmax(n=2)
         )
 
