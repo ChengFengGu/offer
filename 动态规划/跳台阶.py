@@ -28,19 +28,19 @@ class Solution:
         # write code here
         if number <= 0:
             return 0
-        if number ==1 or number ==2:
+        if number == 1 or number == 2:
             return number
         dp = [None for i in range(number)]
         dp[0] = 0
         dp[1] = 1
         dp[2] = 2
-        
+
         sum = 0
-        for i in range(3,number):
-            dp[i] = dp[i-1] + dp[i-2]
+        for i in range(3, number):
+            dp[i] = dp[i - 1] + dp[i - 2]
         for item in dp[:-1]:
             sum += item
-        return sum + 2  #这是为什么？#TODO
+        return sum + 2  # 这是为什么？#TODO
 
 
 class Solutionv2(object):
@@ -48,16 +48,20 @@ class Solutionv2(object):
         # write code here
         if number <= 0:
             return 0
-        if number ==1 or number ==2:
+        if number == 1 or number == 2:
             return number
-        dp = [None for i in range(number)]
+        dp = [None for i in range(3)]
         dp[0] = 0
         dp[1] = 1
         dp[2] = 2
-        
+
         sum = 0
-        for i in range(3,number):
-            dp[i] = dp[i-1] + dp[i-2]
+        for i in range(0, number):
+            if i < 3:
+                sum += dp[i]
+            else:
+                dp[i % 3] = dp[(i - 1) % 3] + dp[(i - 2) % 3]
+                sum += dp[i % 3]
         return dp[-1]
 
 
