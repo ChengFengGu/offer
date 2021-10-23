@@ -18,6 +18,10 @@ from torch.optim import SGD,Adam
 
 
 
+# DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+DEVICE = "cpu"
+
+
 def setup_logging(
     output_folder, console="debug", info_filename="info.log", debug_filename="debug.log"
 ):
@@ -136,6 +140,7 @@ def get_set_loader():
 def test(model:nn.Module,val_loader:DataLoader):
     logging.info("==> testing ...")
     for batch_num,(feat,label) in enumerate(val_loader):
+        feat = feat.to(DEVICE)
         
 
 
