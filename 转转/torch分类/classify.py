@@ -14,6 +14,9 @@ from torchvision.datasets import FashionMNIST
 from tqdm import tqdm, trange
 
 
+
+
+
 def setup_logging(
     output_folder, console="debug", info_filename="info.log", debug_filename="debug.log"
 ):
@@ -132,6 +135,8 @@ def get_set_loader():
 
 
 def train(epochs:int = 20):
+    opt = 
+
     model = Model(in_feats=1,cls_num=10)
     train_loader,val_loader,_ = get_set_loader()
     for epoch in epochs:
