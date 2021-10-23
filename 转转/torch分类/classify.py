@@ -130,16 +130,12 @@ def get_set_loader():
 
 
 def train(epochs:int = 20):
+    model = Model(in_feats=3,cls_num=2)
     train_loader,val_loader,_ = get_set_loader()
     for epoch in epochs:
         for batch_num,(feat,label) in enumerate(train_loader):
-            
+            pass
 
 
 if __name__ == "__main__":
-    a = torch.rand(12, 3, 28, 28)
-    model = Model(in_feats=3)
-    pred = model(a)
-
-    labels = [torch.argmax(pred[i]) for i in range(len(pred))]
-    print(labels)
+    pass
