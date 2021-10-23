@@ -52,8 +52,8 @@ class Model(nn.Module):
 
 
 def get_set_loader():
-    fashion_mnist = FashionMNIST(download=True,root) 
-
+    fashion_mnist = FashionMNIST(download=True,root="转转/torch分类/fashion_mnist") 
+    
 
 
 
