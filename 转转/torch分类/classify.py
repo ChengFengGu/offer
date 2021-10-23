@@ -109,10 +109,10 @@ class Model(nn.Module):
         x_feat = self.layers(x)
         # x_flatten = x_feat.flatten()
         x_flatten = x_feat.view(N, -1)
-        pred = self.cls(x_flatten)
-        result = F.softmax(pred)
+        logits = self.cls(x_flatten)
+        proab = F.softmax(logits)
 
-        return result
+        return  result
 
 
 def get_set_loader():
@@ -144,8 +144,8 @@ def test(model: nn.Module, val_loader: DataLoader):
     for batch_num, (feat, label) in enumerate(val_loader):
         feat = feat.to(DEVICE)
         label = label.to(DEVICE)
-        result = model(feat)
-        
+        pred = model(feat)
+        pass
 
 
 def train(model: nn.Module, epochs: int = 20):
