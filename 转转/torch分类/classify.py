@@ -1,15 +1,17 @@
+import logging
+import os
+import sys
+import traceback
+from os.path import join
+
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader, Dataset, random_split
 from torchvision import transforms
 from torchvision.datasets import FashionMNIST
-import numpy as np
-import logging
-import os
-from os.path import join
-import traceback
-import sys
+from tqdm import tqdm, trange
 
 
 def setup_logging(
@@ -127,8 +129,11 @@ def get_set_loader():
     return train_dataloader, val_dataloader, test_dataloader
 
 
-def train():
-    train_loader,val_loader
+def train(epochs:int = 20):
+    train_loader,val_loader,_ = get_set_loader()
+    for epoch in epochs:
+        for batch_num,(feat,label) in enumerate(train_loader):
+            
 
 
 if __name__ == "__main__":
