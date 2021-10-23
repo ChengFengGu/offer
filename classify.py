@@ -2,11 +2,16 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-import torch.
+from torchvision import transforms
 
 def input_transform():
-    pass
-
+    transforms.Compose(
+        [
+            transforms.Normalize(),
+            transforms.ToTensor()
+        ]
+    )
+    
 
 class Model(nn.Module):
     def __init__(self,in_feats:int,cls_num:int = 2):
