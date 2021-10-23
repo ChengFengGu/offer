@@ -117,10 +117,16 @@ class Model(nn.Module):
 
 def get_set_loader():
     fashion_mnist_train = FashionMNIST(
-        download=True, root="转转/torch分类/fashion_mnist", train=True
+        download=True,
+        root="转转/torch分类/fashion_mnist",
+        train=True,
+        transform=input_transform(),
     )
     fashion_mnist_test = FashionMNIST(
-        download=True, root="转转/torch分类/fashion_mnist", train=False
+        download=True,
+        root="转转/torch分类/fashion_mnist",
+        train=False,
+        transform=input_transform(),
     )
 
     train_size = int(0.8 * len(fashion_mnist_train))
@@ -129,9 +135,7 @@ def get_set_loader():
         fashion_mnist_train, [train_size, val_size]
     )
 
-    train_dataloader = DataLoader(
-        train_dataset, batch_size=32, shuffle=True, transform=input_transform()
-    )
+    train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
     val_dataloader = DataLoader(val_dataset, batch_size=32, shuffle=False)
     test_dataloader = DataLoader(fashion_mnist_test, batch_size=32, shuffle=False)
 
