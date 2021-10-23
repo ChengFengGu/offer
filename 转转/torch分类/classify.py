@@ -133,6 +133,12 @@ def get_set_loader():
     return train_dataloader, val_dataloader, test_dataloader
 
 
+def test(model:nn.Module,val_loader:DataLoader):
+    logging.info("==> testing ...")
+    for batch_num,(feat,label) in enumerate(val_loader):
+        
+
+
 def train(model:nn.Module,epochs: int = 20):
     # device = "cuda" if torch.cuda.is_available() else "cpu" 本机只支持CPU
     device = "cpu"
