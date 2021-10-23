@@ -73,11 +73,11 @@ def set_seed():
 
 
 class Model(nn.Module):
-    def __init__(self, in_feats: int, cls_num: int = 2):
+    def __init__(self, in_chans: int, cls_num: int = 2):
         # self.conv = nn.Conv2d(28,56,kernel_size=3)
         super().__init__()
         self.layers = nn.Sequential(
-            nn.Conv2d(in_feats, 256, 3),
+            nn.Conv2d(in_chans, 256, 3),
             nn.ReLU(),
             nn.Conv2d(256, 512, 3),
             nn.ReLU(),
@@ -129,6 +129,8 @@ def get_set_loader():
     return train_dataloader, val_dataloader, test_dataloader
 
 
+
+
 def train(epochs:int = 20):
     model = Model(in_feats=1,cls_num=10)
     train_loader,val_loader,_ = get_set_loader()
@@ -138,4 +140,7 @@ def train(epochs:int = 20):
 
 
 if __name__ == "__main__":
-    pass
+    a = torch.rand(12,1,28,28)
+    model = Model(in_chans=1,cls_num=10)
+    result = model(a)
+    print(result)
