@@ -112,7 +112,7 @@ class Model(nn.Module):
         logits = self.cls(x_flatten)
         proab = F.softmax(logits)
 
-        return  result
+        return logits,proab
 
 
 def get_set_loader():
@@ -144,8 +144,8 @@ def test(model: nn.Module, val_loader: DataLoader):
     for batch_num, (feat, label) in enumerate(val_loader):
         feat = feat.to(DEVICE)
         label = label.to(DEVICE)
-        pred = model(feat)
-        pass
+        logits,proab = model(feat)
+        
 
 
 def train(model: nn.Module, epochs: int = 20):
@@ -159,12 +159,12 @@ def train(model: nn.Module, epochs: int = 20):
 
     for epoch in epochs:
         model = model.train()
-        for batch_num, (feat, label) in enumerate(train_loader):
+        for batch_num, (feat, target) in enumerate(train_loader):
             feat = feat.to(device)
-            label = label.to(device)
+            target = target.to(device)
 
-            result = model(feat)
-            cost = F.cross_entropy(result, label)  # 多分类交叉熵损失比较合适
+            logits,proab = model(feat)
+            cost = F.cross_entropy(logits, target)  # 多分类交叉熵损失比较合适
 
             optimizer.zero_grad()
             cost.backward()
