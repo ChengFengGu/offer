@@ -7,14 +7,14 @@ class Model(nn.Module):
         # self.conv = nn.Conv2d(28,56,kernel_size=3)
         
         self.layers = nn.Sequential(
-            nn.Conv2D(in_feats,256,3),
+            nn.Conv2d(in_feats,256,3),
             nn.ReLU(),
             nn.Conv2d(256,512,3),
             nn.ReLU(),
-            nn.MaxPool(),
-            nn.Conv2D(512,512,3),
+            nn.MaxPool2d(kernel_size=3),
+            nn.Conv2d(512,512,3),
             nn.ReLU(),
-            nn.AvgPool()        
+            nn.AvgPool2d(kernel_size=3)        
         )
 
         self.cls = nn.Sequential(
@@ -27,11 +27,11 @@ class Model(nn.Module):
 
     def forward(self,x):
         x_feat = self.layers(x)
-        x_flatten = x.flatten()
+        x_flatten = x_feat
         pred = self.cls(x_flatten)
         return pred
 
 if __name__ == "__main__":
     a = torch.rand(3,28,28)
-    model = Model()
+    model = Model(in_feats=3)
     pred = model(a)
