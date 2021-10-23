@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class Model(nn.Module):
-    def __init__(self,in_feats:int):
+    def __init__(self,in_feats:int,cls_num:int = 2):
         # self.conv = nn.Conv2d(28,56,kernel_size=3)
         super().__init__()
         self.layers = nn.Sequential(
@@ -22,11 +22,11 @@ class Model(nn.Module):
             nn.ReLU(),
             nn.Linear(1024,256),
             nn.ReLU(),
-            nn.Linear(256,128),
+            nn.Linear(256,cls_num),
             nn.ReLU(),
         )
 
-        self.softmax = nn.Softmax(dim=)
+        self.softmax = nn.Softmax(dim=cls_num)
 
     def forward(self,x:torch.Tensor):
         N,C,H,W = x.shape
@@ -34,7 +34,9 @@ class Model(nn.Module):
         # x_flatten = x_feat.flatten()
         x_flatten = x_feat.view(N,-1)
         pred = self.cls(x_flatten)
-        return pred
+        result = self.softmax(pred)
+        
+        return result
 
 if __name__ == "__main__":
     a = torch.rand(12,3,28,28)
