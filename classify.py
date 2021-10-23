@@ -11,7 +11,6 @@ def input_transform():
             transforms.ToTensor()
         ]
     )
-    
 
 class Model(nn.Module):
     def __init__(self,in_feats:int,cls_num:int = 2):
@@ -38,7 +37,7 @@ class Model(nn.Module):
             nn.ReLU(),
         )
 
-        self.softmax = F.softmax(dim=cls_num)
+        
 
     def forward(self,x:torch.Tensor):
         N,C,H,W = x.shape
@@ -46,11 +45,20 @@ class Model(nn.Module):
         # x_flatten = x_feat.flatten()
         x_flatten = x_feat.view(N,-1)
         pred = self.cls(x_flatten)
-        result = self.softmax(pred)
+        result = F.softmax(pred)
         
         return result
+
+
+
+
+
+
 
 if __name__ == "__main__":
     a = torch.rand(12,3,28,28)
     model = Model(in_feats=3)
     pred = model(a)
+
+    labels = [torch.argmax(pred[i]) for i in range(len(pred))]
+    print(labels)
