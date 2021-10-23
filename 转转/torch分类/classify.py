@@ -155,8 +155,8 @@ def train(model: nn.Module, epochs: int = 20):
     # device = "cuda" if torch.cuda.is_available() else "cpu" 本机只支持CPU
     device = "cpu"
     # model = model.to(device)
-    optimizer = SGD(model.parameters(), momentum=0.9)
-    model = Model(in_feats=1, cls_num=10)
+    model = model.train()
+    optimizer = SGD(model.parameters(), momentum=0.9,lr=0.01)
     train_loader, val_loader, test_loader = get_set_loader()
 
     for epoch in epochs:
@@ -186,4 +186,5 @@ if __name__ == "__main__":
     # a = torch.rand(12, 1, 28, 28)
     model = Model(in_chans=1, cls_num=10)
     model = model.to(DEVICE)
+    train(model,20)
     
