@@ -5,7 +5,7 @@ import torch.nn.functional as F
 class Model(nn.Module):
     def __init__(self,in_feats:int):
         # self.conv = nn.Conv2d(28,56,kernel_size=3)
-        
+        super().__init__()
         self.layers = nn.Sequential(
             nn.Conv2d(in_feats,256,3),
             nn.ReLU(),
@@ -25,9 +25,9 @@ class Model(nn.Module):
             nn.Softmax(dim=2)
         )
 
-    def forward(self,x):
+    def forward(self,x:torch.Tensor):
         x_feat = self.layers(x)
-        x_flatten = x_feat
+        x_flatten = x_feat.flatten()
         pred = self.cls(x_flatten)
         return pred
 
