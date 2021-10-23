@@ -130,7 +130,7 @@ def get_set_loader():
 
 
 def train(epochs:int = 20):
-    model = Model(in_feats=3,cls_num=2)
+    model = Model(in_feats=1,cls_num=10)
     train_loader,val_loader,_ = get_set_loader()
     for epoch in epochs:
         for batch_num,(feat,label) in enumerate(train_loader):
