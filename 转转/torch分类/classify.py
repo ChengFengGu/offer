@@ -71,7 +71,7 @@ def setup_logging(
 
 
 def input_transform():
-    transforms.Compose([transforms.Normalize(), transforms.ToTensor()])
+    transforms.Compose([transforms.ToTensor()])
 
 
 def set_seed():
@@ -129,7 +129,9 @@ def get_set_loader():
         fashion_mnist_train, [train_size, val_size]
     )
 
-    train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+    train_dataloader = DataLoader(
+        train_dataset, batch_size=32, shuffle=True, transform=input_transform()
+    )
     val_dataloader = DataLoader(val_dataset, batch_size=32, shuffle=False)
     test_dataloader = DataLoader(fashion_mnist_test, batch_size=32, shuffle=False)
 
@@ -156,10 +158,10 @@ def train(model: nn.Module, epochs: int = 20):
     device = "cpu"
     # model = model.to(device)
     model = model.train()
-    optimizer = SGD(model.parameters(), momentum=0.9,lr=0.01)
+    optimizer = SGD(model.parameters(), momentum=0.9, lr=0.01)
     train_loader, val_loader, test_loader = get_set_loader()
 
-    for epoch in epochs:
+    for epoch in range(epochs):
         model = model.train()
         for batch_num, (feat, target) in enumerate(train_loader):
             feat = feat.to(device)
@@ -186,5 +188,4 @@ if __name__ == "__main__":
     # a = torch.rand(12, 1, 28, 28)
     model = Model(in_chans=1, cls_num=10)
     model = model.to(DEVICE)
-    train(model,20)
-    
+    train(model, 20)
