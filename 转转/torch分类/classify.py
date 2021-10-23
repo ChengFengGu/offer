@@ -6,6 +6,7 @@ from os.path import join
 
 import numpy as np
 import torch
+from torch import optim
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader, Dataset, random_split
@@ -146,8 +147,15 @@ def train(model:nn.Module,epochs: int = 20):
             label = label.to(device)
 
             result = model(feat)
-            cost = F.cross_entropy() #多分类交叉熵损失比较合适
+            cost = F.cross_entropy(result,label) #多分类交叉熵损失比较合适
 
+            optimizer.zero_grad()
+            cost.backward()
+            optimizer.step()
+
+            if batch_num % 50 == 0:
+                logging.info(f"Epoch:{epoch} | batch:{batch_num} | cost:{cost}")
+        
 
 if __name__ == "__main__":
     a = torch.rand(12, 1, 28, 28)
