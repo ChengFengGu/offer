@@ -112,7 +112,7 @@ class Model(nn.Module):
         logits = self.cls(x_flatten)
         proab = F.softmax(logits)
 
-        return logits,proab
+        return logits, proab
 
 
 def get_set_loader():
@@ -136,16 +136,19 @@ def get_set_loader():
     return train_dataloader, val_dataloader, test_dataloader
 
 
-def test(model: nn.Module, val_loader: DataLoader):
+def compute_accuracy(model: nn.Module, val_loader: DataLoader):
     model = model.eval()
     logging.info("==> testing ...")
     all_num = 0
     acc_num = 0
-    for batch_num, (feat, label) in enumerate(val_loader):
+    for batch_num, (feat, target) in enumerate(val_loader):
         feat = feat.to(DEVICE)
-        label = label.to(DEVICE)
-        logits,proab = model(feat)
-        
+        target = target.to(DEVICE)
+        logits, proab = model(feat)
+        _, pred_labels = torch.max(proab, 1)
+        all_num += target.size(0)
+        acc_num += (pred_labels == target).sum()
+    return acc_num * 1.0 / all_num * 1.0
 
 
 def train(model: nn.Module, epochs: int = 20):
@@ -156,14 +159,13 @@ def train(model: nn.Module, epochs: int = 20):
     model = Model(in_feats=1, cls_num=10)
     train_loader, val_loader, _ = get_set_loader()
 
-
     for epoch in epochs:
         model = model.train()
         for batch_num, (feat, target) in enumerate(train_loader):
             feat = feat.to(device)
             target = target.to(device)
 
-            logits,proab = model(feat)
+            logits, proab = model(feat)
             cost = F.cross_entropy(logits, target)  # 多分类交叉熵损失比较合适
 
             optimizer.zero_grad()
@@ -172,7 +174,8 @@ def train(model: nn.Module, epochs: int = 20):
 
             if batch_num % 50 == 0:
                 logging.info(f"Epoch:{epoch} | batch:{batch_num} | cost:{cost}")
-
+        accuracy = compute_accuracy(model,val_loader=val_loader)
+        print(f"Epoch")
 
 if __name__ == "__main__":
     a = torch.rand(12, 1, 28, 28)
