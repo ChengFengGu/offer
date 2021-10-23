@@ -18,7 +18,7 @@ class Model(nn.Module):
         )
 
         self.cls = nn.Sequential(
-            nn.Linear(24576,1024),
+            nn.Linear(2048,1024),
             nn.ReLU(),
             nn.Linear(1024,256),
             nn.ReLU(),
@@ -28,8 +28,10 @@ class Model(nn.Module):
         )
 
     def forward(self,x:torch.Tensor):
+        N,C,H,W = x.shape
         x_feat = self.layers(x)
-        x_flatten = x_feat.flatten()
+        # x_flatten = x_feat.flatten()
+        x_flatten = x_feat.view(N,-1)
         pred = self.cls(x_flatten)
         return pred
 
