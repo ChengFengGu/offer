@@ -24,8 +24,9 @@ class Model(nn.Module):
             nn.ReLU(),
             nn.Linear(256,128),
             nn.ReLU(),
-            nn.Softmax(dim=2)
         )
+
+        self.softmax = nn.Softmax(dim=)
 
     def forward(self,x:torch.Tensor):
         N,C,H,W = x.shape
