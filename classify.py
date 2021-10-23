@@ -7,22 +7,22 @@ class Model(nn.Module):
         # self.conv = nn.Conv2d(28,56,kernel_size=3)
         
         self.layers = nn.Sequential(
-            nn.Conv2D(in_feats,256,3)
-            nn.ReLu()
-            nn.Conv2d(256,512,3)
-            nn.ReLU()
-            nn.MaxPool()
-            nn.Conv2D(512,512,3)
-            nn.ReLU()
+            nn.Conv2D(in_feats,256,3),
+            nn.ReLU(),
+            nn.Conv2d(256,512,3),
+            nn.ReLU(),
+            nn.MaxPool(),
+            nn.Conv2D(512,512,3),
+            nn.ReLU(),
             nn.AvgPool()        
         )
 
         self.cls = nn.Sequential(
-            nn.Linear(512,256)
-            nn.ReLU()
-            nn.Linear(256,128)
-            nn.ReLU()
-            nn.softmax(n=2)
+            nn.Linear(512,256),
+            nn.ReLU(),
+            nn.Linear(256,128),
+            nn.ReLU(),
+            nn.Softmax(dim=2)
         )
 
     def forward(self,x):
