@@ -14,8 +14,7 @@ from torchvision import transforms
 from torchvision.datasets import FashionMNIST
 from tqdm import tqdm, trange
 
-from torch.optim import SGD,Adam
-
+from torch.optim import SGD, Adam
 
 
 # DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -137,28 +136,35 @@ def get_set_loader():
     return train_dataloader, val_dataloader, test_dataloader
 
 
-def test(model:nn.Module,val_loader:DataLoader):
+def test(model: nn.Module, val_loader: DataLoader):
+    model = model.eval()
     logging.info("==> testing ...")
-    for batch_num,(feat,label) in enumerate(val_loader):
+    all_num = 0
+    acc_num = 0
+    for batch_num, (feat, label) in enumerate(val_loader):
         feat = feat.to(DEVICE)
+        label = label.to(DEVICE)
+        result = model(feat)
         
 
 
-def train(model:nn.Module,epochs: int = 20):
+def train(model: nn.Module, epochs: int = 20):
     # device = "cuda" if torch.cuda.is_available() else "cpu" 本机只支持CPU
     device = "cpu"
     model = model.to(device)
-    optimizer = SGD(model.parameters(),momentum=0.9)
-
+    optimizer = SGD(model.parameters(), momentum=0.9)
     model = Model(in_feats=1, cls_num=10)
     train_loader, val_loader, _ = get_set_loader()
+
+
     for epoch in epochs:
+        model = model.train()
         for batch_num, (feat, label) in enumerate(train_loader):
             feat = feat.to(device)
             label = label.to(device)
 
             result = model(feat)
-            cost = F.cross_entropy(result,label) #多分类交叉熵损失比较合适
+            cost = F.cross_entropy(result, label)  # 多分类交叉熵损失比较合适
 
             optimizer.zero_grad()
             cost.backward()
@@ -166,7 +172,7 @@ def train(model:nn.Module,epochs: int = 20):
 
             if batch_num % 50 == 0:
                 logging.info(f"Epoch:{epoch} | batch:{batch_num} | cost:{cost}")
-        
+
 
 if __name__ == "__main__":
     a = torch.rand(12, 1, 28, 28)
