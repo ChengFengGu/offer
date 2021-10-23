@@ -13,7 +13,7 @@ from torchvision import transforms
 from torchvision.datasets import FashionMNIST
 from tqdm import tqdm, trange
 
-
+from torch.optim import SGD,Adam
 
 
 
@@ -132,20 +132,21 @@ def get_set_loader():
     return train_dataloader, val_dataloader, test_dataloader
 
 
+def train(epochs: int = 20):
+    # device = "cuda" if torch.cuda.is_available() else "cpu" 本机只支持CPU
+    device = "cpu"
+    optimizer = SGD(momentum=0.9)
 
-
-def train(epochs:int = 20):
-    opt = 
-
-    model = Model(in_feats=1,cls_num=10)
-    train_loader,val_loader,_ = get_set_loader()
+    model = Model(in_feats=1, cls_num=10)
+    train_loader, val_loader, _ = get_set_loader()
     for epoch in epochs:
-        for batch_num,(feat,label) in enumerate(train_loader):
-            pass
+        for batch_num, (feat, label) in enumerate(train_loader):
+            feat = feat.to(device)
+            label = feat.to(device)
 
 
 if __name__ == "__main__":
-    a = torch.rand(12,1,28,28)
-    model = Model(in_chans=1,cls_num=10)
+    a = torch.rand(12, 1, 28, 28)
+    model = Model(in_chans=1, cls_num=10)
     result = model(a)
     print(result)
