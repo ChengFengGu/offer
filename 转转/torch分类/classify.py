@@ -1,15 +1,16 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import DataLoader, Dataset, random_split
 from torchvision import transforms
 from torchvision.datasets import FashionMNIST
 
-import numpy as np 
+import numpy as np
 
 
 def input_transform():
     transforms.Compose([transforms.Normalize(), transforms.ToTensor()])
+
 
 def set_seed():
     torch.manual_seed(2021)
@@ -60,15 +61,21 @@ def get_set_loader():
         download=True, root="转转/torch分类/fashion_mnist", train=False
     )
 
-    train_size = int(0.8*len(fashion_mnist_train))
+    train_size = int(0.8 * len(fashion_mnist_train))
     val_size = len(fashion_mnist_train) - train_size
-    train_dataset,val_dataset = torch.
+    train_dataset, val_dataset = random_split(
+        fashion_mnist_train, [train_size, val_size]
+    )
 
-    train_dataloader = DataLoader(fashion_mnist_train, batch_size=32, shuffle=True)
+    train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+    val_dataloader = DataLoader(val_dataset,batch_size=32,shuffle=False)
     test_dataloader = DataLoader(fashion_mnist_test, batch_size=32, shuffle=False)
 
+    return train_dataloader,val_dataloader,test_dataloader
 
-def train():pass
+def train():
+    pass
+
 
 if __name__ == "__main__":
     a = torch.rand(12, 3, 28, 28)
