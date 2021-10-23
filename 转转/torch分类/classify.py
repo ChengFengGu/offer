@@ -1,14 +1,19 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
+from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
 from torchvision.datasets import FashionMNIST
-from torch.utils.data import DataLoader, Dataset
+
+import numpy as np 
 
 
 def input_transform():
     transforms.Compose([transforms.Normalize(), transforms.ToTensor()])
+
+def set_seed():
+    torch.random.seed(2021)
+    np.random.seed(2021)
 
 
 class Model(nn.Module):
