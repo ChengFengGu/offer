@@ -17,8 +17,8 @@ from tqdm import tqdm, trange
 from torch.optim import SGD, Adam
 
 
-# DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-DEVICE = "cpu"
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+# DEVICE = "cpu"
 
 
 def setup_logging(
@@ -178,7 +178,7 @@ def train(model: nn.Module, epochs: int = 20):
             cost.backward()
             optimizer.step()
 
-            if batch_num % 50 == 0:
+            if batch_num % 5 == 0:
                 logging.info(f"Epoch:{epoch} | batch:{batch_num} | cost:{cost}")
         accuracy = compute_accuracy(model, val_loader=val_loader)
         logging.info(f"Epoch {epoch} | accuracy:{accuracy:.2f}")
