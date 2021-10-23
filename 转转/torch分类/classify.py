@@ -12,7 +12,7 @@ def input_transform():
     transforms.Compose([transforms.Normalize(), transforms.ToTensor()])
 
 def set_seed():
-    torch.random.seed(2021)
+    torch.manual_seed(2021)
     np.random.seed(2021)
 
 
@@ -59,6 +59,11 @@ def get_set_loader():
     fashion_mnist_test = FashionMNIST(
         download=True, root="转转/torch分类/fashion_mnist", train=False
     )
+
+    train_size = int(0.8*len(fashion_mnist_train))
+    val_size = len(fashion_mnist_train) - train_size
+    train_dataset,val_dataset = torch.
+
     train_dataloader = DataLoader(fashion_mnist_train, batch_size=32, shuffle=True)
     test_dataloader = DataLoader(fashion_mnist_test, batch_size=32, shuffle=False)
 
