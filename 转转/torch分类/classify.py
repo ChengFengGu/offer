@@ -1,21 +1,20 @@
 import logging
 import os
 import sys
+import time
 import traceback
 from os.path import join
 
 import numpy as np
 import torch
-from torch import optim
 import torch.nn as nn
 import torch.nn.functional as F
+from torch import optim
+from torch.optim import SGD, Adam
 from torch.utils.data import DataLoader, Dataset, random_split
 from torchvision import transforms
 from torchvision.datasets import FashionMNIST
 from tqdm import tqdm, trange
-
-from torch.optim import SGD, Adam
-
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # DEVICE = "cpu"
@@ -68,6 +67,8 @@ def setup_logging(
         logger.info("\n" + "".join(traceback.format_exception(type, value, tb)))
 
     sys.excepthook = exception_handler
+
+
 
 
 def input_transform():
@@ -158,18 +159,17 @@ def compute_accuracy(model: nn.Module, val_loader: DataLoader):
 
 
 def train(model: nn.Module, epochs: int = 20):
-    # device = "cuda" if torch.cuda.is_available() else "cpu" 本机只支持CPU
-    device = "cpu"
-    # model = model.to(device)
+    model = model.to(DEVICE)
     model = model.train()
     optimizer = SGD(model.parameters(), momentum=0.9, lr=0.01)
     train_loader, val_loader, test_loader = get_set_loader()
 
+    # start_time = time.time()
     for epoch in range(epochs):
         model = model.train()
         for batch_num, (feat, target) in enumerate(train_loader):
-            feat = feat.to(device)
-            target = target.to(device)
+            feat = feat.to(DEVICE)
+            target = target.to(DEVICE)
 
             logits, proab = model(feat)
             cost = F.cross_entropy(logits, target)  # 多分类交叉熵损失比较合适
@@ -190,6 +190,7 @@ def train(model: nn.Module, epochs: int = 20):
 
 if __name__ == "__main__":
     # a = torch.rand(12, 1, 28, 28)
+    setup_logging("转转/torch分类/logs")
     model = Model(in_chans=1, cls_num=10)
     model = model.to(DEVICE)
     train(model, 20)
