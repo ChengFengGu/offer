@@ -132,17 +132,21 @@ def get_set_loader():
     return train_dataloader, val_dataloader, test_dataloader
 
 
-def train(epochs: int = 20):
+def train(model:nn.Module,epochs: int = 20):
     # device = "cuda" if torch.cuda.is_available() else "cpu" 本机只支持CPU
     device = "cpu"
-    optimizer = SGD(momentum=0.9)
+    model = model.to(device)
+    optimizer = SGD(model.parameters(),momentum=0.9)
 
     model = Model(in_feats=1, cls_num=10)
     train_loader, val_loader, _ = get_set_loader()
     for epoch in epochs:
         for batch_num, (feat, label) in enumerate(train_loader):
             feat = feat.to(device)
-            label = feat.to(device)
+            label = label.to(device)
+
+            result = model(feat)
+            cost = F.cross_entropy() #多分类交叉熵损失比较合适
 
 
 if __name__ == "__main__":
