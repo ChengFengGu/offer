@@ -2,6 +2,12 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+import torch.
+
+def input_transform():
+    pass
+
+
 class Model(nn.Module):
     def __init__(self,in_feats:int,cls_num:int = 2):
         # self.conv = nn.Conv2d(28,56,kernel_size=3)
@@ -12,6 +18,7 @@ class Model(nn.Module):
             nn.Conv2d(256,512,3),
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=3),
+            # nn.BatchNorm2d(),
             nn.Conv2d(512,512,3),
             nn.ReLU(),
             nn.AvgPool2d(kernel_size=3)        
