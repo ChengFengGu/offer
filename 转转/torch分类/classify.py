@@ -4,7 +4,7 @@ import torch.nn.functional as F
 
 from torchvision import transforms
 from torchvision.datasets import FashionMNIST
-from torch
+from torch.utils.data import DataLoader,Dataset
 
 def input_transform():
     transforms.Compose(
@@ -54,7 +54,7 @@ class Model(nn.Module):
 
 def get_set_loader():
     fashion_mnist = FashionMNIST(download=True,root="转转/torch分类/fashion_mnist") 
-    dataloader = 
+    dataloader = DataLoader(fashion_mnist,batch_size=32,)
 
 
 
