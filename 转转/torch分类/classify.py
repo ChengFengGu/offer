@@ -120,13 +120,13 @@ def get_set_loader():
         download=True,
         root="转转/torch分类/fashion_mnist",
         train=True,
-        transform=input_transform(),
+        transform=transforms.ToTensor(),
     )
     fashion_mnist_test = FashionMNIST(
         download=True,
         root="转转/torch分类/fashion_mnist",
         train=False,
-        transform=input_transform(),
+        transform=transforms.ToTensor(),
     )
 
     train_size = int(0.8 * len(fashion_mnist_train))
