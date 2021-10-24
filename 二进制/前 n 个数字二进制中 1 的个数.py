@@ -1,7 +1,7 @@
 class Solution:
     def countBits(self, n: int):
-        result = [-1 for _ in range(n+1)]
-        for i in range(n):
+        result = [0 for _ in range(n+1)]
+        for i in range(n+1):
             j = i
             while j!=0:
                 result[i] += 1
