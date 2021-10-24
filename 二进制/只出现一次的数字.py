@@ -1,16 +1,13 @@
 class Solution:
     def singleNumber(self, nums:list) -> int:
-        bitSums = [0 for _ in range(32)]
-        # 所有数字的同一位置的数位相加。
-        for num in nums:
-            for i in range(0,32):
-                bitSums[i] += (num >> (31-i)) & 1
-        
-        # 如果将出现3次的数字的
-        result = 0
+        ans = 0
         for i in range(32):
-            result = (result << 1) + bitSums[i]%3
-        return result
+            total = sum((num>>i) & 1 for num in nums)
+            if total % 3:
+                if i == 31:
+                    ans -= (1<<i)
+                else:
+                    ans |= (1<<i)
 
 if __name__ == "__main__":
     s = Solution()
