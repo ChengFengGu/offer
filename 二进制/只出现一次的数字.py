@@ -8,6 +8,7 @@ class Solution:
                     ans -= (1<<i)
                 else:
                     ans |= (1<<i)
+        return ans
 
 if __name__ == "__main__":
     s = Solution()
