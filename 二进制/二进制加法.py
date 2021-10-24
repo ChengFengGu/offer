@@ -14,9 +14,11 @@ class Solution:
             sum = digitA + digitB + carry
             carry = sum // 2
             result.append(sum%2)
+
         if carry == 1:
             result.append(1)
-        for i in range(len(result)):
+
+        for i in range(len(result)-1,-1,-1):
             str_result += str(result[i])
         return str_result
 
