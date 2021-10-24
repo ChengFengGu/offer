@@ -10,5 +10,5 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    result = s.countBits(2)
+    result = s.countBits(6)
     print(result)
