@@ -7,4 +7,6 @@ if __name__ == '__main__':
     nums = [int(e) for e in line.split()]
 
     
-    while pos < 
+    while len(nums) >= k:
+        nums.remove(nums.index(max(nums[:k+1])))
+    print(nums)
