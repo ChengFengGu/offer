@@ -1,4 +1,4 @@
-def judge(s: str, t: str, swaps: list, k: int):
+def judge(s: str, t: str, swaps: list):
     for i in range(len(s) - 1):
         if s[i] != t[i] and s[i + 1] != t[i + 1]:
             if t[i] + t[i + 1] in swaps or t[i + 1] + t[i] in swaps:
@@ -6,7 +6,7 @@ def judge(s: str, t: str, swaps: list, k: int):
                 t[i] = t[i + 1]
                 t[i + 1] = t[i]
     
-    return True if s == t else False
+    return "YES" if s == t else "NO"
 
 
 if __name__ == "__main__":
