@@ -8,5 +8,5 @@ if __name__ == '__main__':
 
     
     while len(nums) >= k:
-        nums.remove(nums.index(max(nums[:k+1])))
-    print(nums)
+        nums.remove(max(nums[:k+1]))
+    for e in nums: print(e,end=' ')
