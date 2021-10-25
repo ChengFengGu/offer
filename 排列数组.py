@@ -1,6 +1,8 @@
 def judge(s:str,t:str,swaps:list,k:int):
-    for i in range(len(s)):
-        if s[i] != t[i]
+    for i in range(len(s)-1):
+        if s[i] != t[i] and s[i+1]!=t[i+1]:
+            if t[i]+t[i+1] in  or t[i+1]+t[i]
+            
 
 
 if __name__ == '__main__':
