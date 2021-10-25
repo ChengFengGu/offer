@@ -1,5 +1,6 @@
-def judge(s:str,t:str,swaps:list):
-    
+def judge(s:str,t:str,swaps:list,k:int):
+    for i in range(len(s)):
+        if s[i] != t[i]
 
 
 if __name__ == '__main__':
