@@ -10,6 +10,9 @@ class Solution:
                 else:
                     result.append(f"{nums[low]}->{nums[i-1]}")
                 low = i
+            if i == n-1:
+                if nums[i] - nums[i-1] > 1:
+                    result.append(f"{nums[i]}")
             
         return result
 
