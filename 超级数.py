@@ -6,5 +6,5 @@ if __name__ == '__main__':
     line = input()
     nums = [int(e) for e in line.split()]
 
-    while len(nums) > k:
-        
+    
+    while pos < 
