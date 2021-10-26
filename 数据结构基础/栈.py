@@ -5,4 +5,4 @@ class Stack:
         self.stack.append(e)
     def pop(self):
         self.stack.pop()
-    
+    def get
