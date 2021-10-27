@@ -1,6 +1,13 @@
 def merge(a: list, b: list):
+    # if a == None and b == None:
+    #     return []
+    # elif a == None:
+    #     return b
+    # elif b == None:
+    #     return a
     merged = []
     i, j = 0, 0
+    
     while i < len(a) and j < len(b):
         if a[i] <= b[j]:
             merged.append(a[i])
@@ -22,5 +29,5 @@ def sort(c: list):
     return merge(a,b)
 
 if __name__ == "__main__":
-    result = sort([1,3,2,5])
+    result = sort([1,3,2,5,4])
     print(result)
