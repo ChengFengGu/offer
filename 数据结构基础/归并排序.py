@@ -22,6 +22,7 @@ def merge(a: list, b: list):
         merged.extend(a[i:])
     if b!= None:
         merged.extend(b[j:])
+    return merged
 
 
 def sort(c: list):
@@ -30,7 +31,7 @@ def sort(c: list):
     mid = len(c) // 2
     if mid == 0 or mid == len(c)-1:
         return c
-    
+
     a = sort(c[:mid])
     b = sort(c[mid:])
     return merge(a,b)
