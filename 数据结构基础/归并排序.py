@@ -24,6 +24,9 @@ def sort(c: list):
     if len(c) <= 1:
         return c
     mid = len(c) // 2
+    if mid == 0 or mid == len(c)-1:
+        return c
+    
     a = sort(c[:mid])
     b = sort(c[mid:])
     return merge(a,b)
