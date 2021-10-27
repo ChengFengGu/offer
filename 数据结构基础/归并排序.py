@@ -7,8 +7,10 @@ def merge(a: list, b: list):
     #     return a
     merged = []
     i, j = 0, 0
-    
-    while i < len(a) and j < len(b):
+    lena = len(a) if a!= None else 0
+    lenb = len(b) if b!= None else 0
+
+    while i < lena and j < lenb:
         if a[i] <= b[j]:
             merged.append(a[i])
             i += 1
@@ -16,8 +18,10 @@ def merge(a: list, b: list):
             merged.append(b[j])
             j += 1
     # 剩余的放进来
-    merged.extend(a[i:])
-    merged.extend(b[j:])
+    if a!=None:
+        merged.extend(a[i:])
+    if b!= None:
+        merged.extend(b[j:])
 
 
 def sort(c: list):
