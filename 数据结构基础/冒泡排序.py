@@ -1,12 +1,12 @@
 class BubbleSort:
     def sort(self,array:list):
         n = len(array)
-        for i in range(n):
+        for i in range(n-1):
             for j in range(n-i):
                 if array[j]>array[j+1]:
-                    temp = array[i]
-                    array[i] = array[j]
-                    array[j] = temp
+                    temp = array[j]
+                    array[j] = array[j+1]
+                    array[j+1] = temp
         return array
 
 if __name__ == '__main__':
