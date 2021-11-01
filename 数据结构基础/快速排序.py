@@ -1,10 +1,10 @@
 class QuickSort:
-    def sort(self,arr:list):
+    def sort(self, arr: list):
         n = len(arr)
         i = 0
-        j = n-1
+        j = n - 1
 
-        def quick_sort(array:list,left:int,right:int):
+        def quick_sort(array: list, left: int, right: int):
             base = array[left]
             if left > right:
                 return array
@@ -13,7 +13,7 @@ class QuickSort:
             j = right
             base = array[left]
 
-            while i<j:
+            while i < j:
                 while array[j] >= base:
                     j -= 1
                 while array[i] <= base:
@@ -24,7 +24,9 @@ class QuickSort:
 
             array[left] = array[i]
             array[i] = base
-            
-            array = 
 
-        
+            array = quick_sort(array, left, i - 1)
+            array = quick_sort(array, i + 1, right)
+            return array
+            
+
