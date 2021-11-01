@@ -1,7 +1,11 @@
 from queue import Queue
 
 
-class 
+class SelfQueue(object):
+    def __init__(self, size: int):
+        self.data = [] * size
+        self.head = 0
+        self.tail = len(self.data)
 
 
 class QueuseTest:
