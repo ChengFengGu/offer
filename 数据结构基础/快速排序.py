@@ -18,6 +18,13 @@ class QuickSort:
                     j -= 1
                 while array[i] <= base:
                     i += 1
-                
+                temp = array[i]
+                array[i] = array[j]
+                array[j] = temp
+
+            array[left] = array[i]
+            array[i] = base
+            
+            array = 
 
         
