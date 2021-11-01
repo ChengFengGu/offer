@@ -10,3 +10,9 @@ class BucketSort:
         for i in range(len(bucket)):
             for j in range(bucket[i]):
                 result.append(i)
+        return result
+
+if __name__ == '__main__':
+    bs = BucketSort()
+    result = bs.sort([3,1,2,5])
+    print(result)
