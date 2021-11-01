@@ -1,5 +1,4 @@
-class Student:
-    def __init__(self,val:int,name:str)
+
 
 class BubbleSort:
     def sort(self,array:list):
