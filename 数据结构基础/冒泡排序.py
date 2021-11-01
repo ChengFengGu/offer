@@ -3,7 +3,7 @@ class BubbleSort:
         n = len(array)
         for i in range(n):
             for j in range(n-i):
-                if array[i]>array[j]:
+                if array[j]>array[j+1]:
                     temp = array[i]
                     array[i] = array[j]
                     array[j] = temp
@@ -11,4 +11,5 @@ class BubbleSort:
 
 if __name__ == '__main__':
     bs = BubbleSort()
-    result = bs.sort()
+    result = bs.sort([1,3,2,1])
+    print(result)
