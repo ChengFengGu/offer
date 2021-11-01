@@ -6,17 +6,18 @@ class QuickSort:
 
         def quick_sort(array:list,left:int,right:int):
             base = array[left]
-            while left < right:
-                while array[right] >= base:
-                    right -= 1
-                while array[left] <= base:
-                    left += 1
-                temp = array[left]
-                array[left] = array[right]
-                array[right] = temp
-            
-            arr[left] = base
-            
-            return array
+            if left > right:
+                return array
+
+            i = left
+            j = right
+            base = array[left]
+
+            while i<j:
+                while array[j] >= base:
+                    j -= 1
+                while array[i] <= base:
+                    i += 1
+                
 
         
