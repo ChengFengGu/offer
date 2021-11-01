@@ -8,5 +8,14 @@ class QueuseTest:
             queue.put(arr[i])
         result = Queue()
         while len(queue)>0:
-            if len(queue)
-            
+            if len(queue)>1:
+                result.put(queue.get())
+                queue.put(queue.get())
+            elif len(queue) == 1:
+                result.put(queue.get())
+        return list(result)
+    
+    
+if __name__ == '__main__':
+    qt = QueuseTest()
+    result = qt.decrypt([])
