@@ -1,6 +1,9 @@
 from queue import Queue
 
 
+class 
+
+
 class QueuseTest:
     def decrypt(self, arr: list):
         queue = Queue()
@@ -14,7 +17,7 @@ class QueuseTest:
                 queue.put(queue.get())
             elif queue.qsize() == 1:
                 result.append(queue.get())
-            
+        return result
 
 
 if __name__ == "__main__":
