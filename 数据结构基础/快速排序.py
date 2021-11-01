@@ -14,4 +14,9 @@ class QuickSort:
                 temp = array[left]
                 array[left] = array[right]
                 array[right] = temp
+            
+            arr[left] = base
+            
             return array
+
+        
