@@ -19,5 +19,13 @@ def heap_sort(arr:list):
     
     len = len(arr)-1 # 无序序列
     begin_index = len-1>>1
+    for i in range(begin_index,-1,-1):
+        maxHeatify(i,len)
     
+
+    def maxHeatify(index:int,len:int):
+        li = (index<<1)+1
+        ri = (li + 1)
+        cMax = li
+        
 
