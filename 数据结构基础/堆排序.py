@@ -16,7 +16,7 @@ steps:
 def heap_sort(arr: list):
 
     # step1 将数组堆化
-
+    length = len(arr) - 1  # 无序序列
     def swap(i:int,j:int):
         temp = arr[i]
         arr[i] = arr[j]
@@ -26,15 +26,20 @@ def heap_sort(arr: list):
         li = (index << 1) + 1
         ri = li + 1
         cMax = li
-        if li > len:
+        if li > length:
             return
-        if ri <= len and arr[ri] > arr[li]:
+        if ri <= length and arr[ri] > arr[li]:
             cMax = ri
         if arr[cMax] > arr[index]:
             swap(cMax,index)
             maxHeatify(cMax,len)
     
-    len = len(arr) - 1  # 无序序列
-    begin_index = len - 1 >> 1
+    begin_index = (length - 1) >> 1
     for i in range(begin_index, -1, -1):
         maxHeatify(i, len)
+    
+    return arr
+if __name__ == "__main__":
+    a = [3,5,3,0,8,6,1,5,8,6,2,4,9,4,7,0,1,8,9,7,3,1,2,5,9,7,4,0,2,6]
+    result = heap_sort(a)
+    print(a)
