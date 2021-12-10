@@ -13,4 +13,11 @@ steps:
 """
 
 
+def heap_sort(arr:list):
+    
+    # step1 将数组堆化
+    
+    len = len(arr)-1 # 无序序列
+    begin_index = len-1>>1
+    
 
