@@ -13,19 +13,28 @@ steps:
 """
 
 
-def heap_sort(arr:list):
-    
+def heap_sort(arr: list):
+
     # step1 将数组堆化
-    
-    len = len(arr)-1 # 无序序列
-    begin_index = len-1>>1
-    for i in range(begin_index,-1,-1):
-        maxHeatify(i,len)
-    
 
-    def maxHeatify(index:int,len:int):
-        li = (index<<1)+1
-        ri = (li + 1)
+    def swap(i:int,j:int):
+        temp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = temp
+
+    def maxHeatify(index: int, len: int):
+        li = (index << 1) + 1
+        ri = li + 1
         cMax = li
-        
-
+        if li > len:
+            return
+        if ri <= len and arr[ri] > arr[li]:
+            cMax = ri
+        if arr[cMax] > arr[index]:
+            swap(cMax,index)
+            maxHeatify(cMax,len)
+    
+    len = len(arr) - 1  # 无序序列
+    begin_index = len - 1 >> 1
+    for i in range(begin_index, -1, -1):
+        maxHeatify(i, len)
