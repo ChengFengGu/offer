@@ -6,7 +6,6 @@ from cn.Python3.mod.preImport import *
 # @test(123)=321
 # @test(-123)=-321
 # @test(120)=21
-# @test(1534236469)=0
 class Solution:
     def reverse(self, x: int) -> int:
         chars = list(str(x))
@@ -26,5 +25,9 @@ class Solution:
         res = ''
         for item in chars:
             res += item
+    
         res = int(res)
+        # 处理溢出的情况
+        if res > 2**31-1 or res < -2**31:
+            return 0
         return res
