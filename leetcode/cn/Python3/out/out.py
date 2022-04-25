@@ -2,7 +2,7 @@ import sys
 import json
 sys.path.append("/home/lhy/codes/offer/leetcode/cn/Python3")
 sys.path.append("/home/lhy/codes/offer/leetcode")
-a = __import__('7_整数反转')
+a = __import__('94_二叉树的中序遍历')
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -102,11 +102,11 @@ def serializeFloat(param):
         return arr[0]+"."+decimalStr[0:5]
        
 
-arr=json.loads("[[123],[-123],[120]]")
+arr=json.loads("[[[1,2]],[[1,2,3]],[[1,2,4,null,3]]]")
 for i in range(len(arr)):
     unitArgs=arr[i]
     s=a.Solution()
-    arg0 = unitArgs[0]
-    result=s.reverse(arg0)
+    arg0 =parseTreeNode(unitArgs[0])
+    result=s.inorderTraversal(arg0)
     resultabc =json.dumps(result,separators=(',', ':'))
     print("resultabc"+str(i)+":"+resultabc+"resultend")
