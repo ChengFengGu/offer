@@ -8,3 +8,4 @@ from cn.Python3.mod.preImport import *
 # @test([2,1,5],806)=[1,0,2,1]
 class Solution:
     def addToArrayForm(self, num: List[int], k: int) -> List[int]:
+        
