@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "leetcode",
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../../../.alg"
+		}
+	],
+	"settings": {}
+}
