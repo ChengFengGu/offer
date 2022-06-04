@@ -1,9 +1,10 @@
-# %%
+
 
 from sklearn.metrics.pairwise import cosine_similarity
 
 i = [1,0,0,0]
 j = [1,0.5,0.5,0.5]
+k = [1,0.6,0.6,0.6]
 
-cosine_similarity([i,j])
-# %%
+print(cosine_similarity([i,j,k]))
+
