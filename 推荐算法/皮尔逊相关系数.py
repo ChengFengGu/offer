@@ -16,3 +16,5 @@ print(pearsonr(A,u4))
 
 print(cosine_similarity([A,u1,u2,u3,u4]))
 print(np.corrcoef(np.array([A,u1,u2,u3,u4]))) #皮尔逊相关系数的另一种形式
+
+
